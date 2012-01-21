@@ -22,7 +22,7 @@
     <Measure name="Cijena" column="cijena" aggregator="avg"  formatString="Standard"/>
     <Measure name="Kolicina" column="cijena" aggregator="count" formatString="Standard"/>
 
-    <CalculatedMember name="Vrijednost" dimension="Measuers" formula="[Measures].[Cijena]*[Measures].[Kolicina]">
+    <CalculatedMember name="Vrijednost" dimension="Measures" formula="[Measures].[Cijena]*[Measures].[Kolicina]">
         <CalculatedMemberProperty name="FORMAT_STRING" value="##0.00 KM" />
     </CalculatedMember>
 
