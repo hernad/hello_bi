@@ -185,7 +185,7 @@
         <group/>
       </field>
       <field>
-        <name>Cijena</name>
+        <name>Kolicina</name>
         <type>Number</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -197,7 +197,7 @@
         <group/>
       </field>
       <field>
-        <name>Kolicina</name>
+        <name>Cijena</name>
         <type>Number</type>
         <length>-1</length>
         <precision>-1</precision>
