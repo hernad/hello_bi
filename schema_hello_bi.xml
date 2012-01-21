@@ -1,0 +1,31 @@
+<Schema name="HelloBi">
+
+  <Cube name="invoices" visible="true" cache="true" enabled="true">
+  
+    <Table name="fakt_invoices_flat" schema="public">
+    </Table>
+
+    <Dimension name="Grad" type="StandardDimension" visible="true">
+       <Hierarchy name="Svi gradovi" visible="true" hasAll="true">
+         <Level name="Grad" column="grad_id" uniqueMembers="true" />      
+       </Hierarchy>
+    </Dimension>
+   
+   
+    <Dimension name="Kategorija" type="StandardDimension" visible="true">
+       <Hierarchy name="Sve kategorije" visible="true" hasAll="true">
+         <Level name="Kategorija" column="art_kat" uniqueMembers="true" />      
+      </Hierarchy>
+    </Dimension>
+
+
+    <Measure name="Cijena" column="cijena" aggregator="avg"  formatString="Standard"/>
+    <Measure name="Kolicina" column="cijena" aggregator="count" formatString="Standard"/>
+
+    <CalculatedMember name="Vrijednost" dimension="Measuers" formula="[Measures].[Cijena]*[Measures].[Kolicina]">
+        <CalculatedMemberProperty name="FORMAT_STRING" value="##0.00 KM" />
+    </CalculatedMember>
+
+
+  </Cube>
+</Schema>
