@@ -1,0 +1,58 @@
+<Schema name="HelloBi">
+  <Cube name="invoices" visible="true" cache="true" enabled="true">
+    <Table name="fact_invoices" schema="public">
+    </Table>
+    <Dimension type="StandardDimension" visible="true" foreignKey="grad_id" highCardinality="false" name="Grad">
+      <Hierarchy name="Svi gradovi" visible="true" hasAll="true" primaryKey="grad_id">
+        <Table name="dim_gradovi" schema="public">
+        </Table>
+        <Level name="Grad" visible="true" table="dim_gradovi" column="grad" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="kateg_id" highCardinality="false" name="Kategorija Artikala">
+      <Hierarchy name="Sve kategorije artikala" visible="true" hasAll="true" primaryKey="kateg_id">
+        <Table name="dim_art_kategorije" schema="public" alias="">
+        </Table>
+        <Level name="Kategorija" visible="true" table="dim_art_kategorije" column="kateg" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="TimeDimension" visible="true" foreignKey="time_id" highCardinality="false" name="Vrijeme">
+      <Hierarchy name="&#268;itavo vrijeme" visible="true" hasAll="true" primaryKey="time_id">
+        <Table name="dim_time" schema="public">
+        </Table>
+        <Level name="Godina" visible="true" table="dim_time" column="year" uniqueMembers="false" levelType="TimeYears">
+        </Level>
+        <Level name="Mjesec" visible="true" table="dim_time" column="month" uniqueMembers="false" levelType="TimeMonths">
+        </Level>
+        <Level name="Dan" visible="true" table="dim_time" column="day" uniqueMembers="false" levelType="TimeDays">
+        </Level>
+        <Level name="Dan u hefti" visible="true" column="day_of_week" uniqueMembers="false" levelType="TimeDays">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="partner_id" name="Partner">
+      <Hierarchy name="Svi partneri" visible="true" hasAll="true" primaryKey="partner_id">
+        <Table name="dim_partneri" schema="public" alias="">
+        </Table>
+        <Level name="Partner" visible="true" table="dim_partneri" column="partner" uniqueMembers="false">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="artikal_id" name="Artikal">
+      <Hierarchy name="Svi artikli" visible="true" hasAll="true" primaryKey="artikal_id">
+        <Table name="dim_artikli" schema="public" alias="">
+        </Table>
+        <Level name="Artikal" visible="true" column="artikal" uniqueMembers="false">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Measure name="Kolicina" column="kolicina" formatString="Standard" aggregator="sum">
+    </Measure>
+    <Measure name="Prodaja" column="prodaja" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="Prosjecna kolicina" column="kolicina" aggregator="avg" visible="true">
+    </Measure>
+  </Cube>
+</Schema>

@@ -666,8 +666,8 @@
 </calculation>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>543</xloc>
-      <yloc>196</yloc>
+      <xloc>553</xloc>
+      <yloc>190</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
