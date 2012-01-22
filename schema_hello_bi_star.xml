@@ -19,16 +19,16 @@
       </Hierarchy>
     </Dimension>
     <Dimension type="TimeDimension" visible="true" foreignKey="time_id" highCardinality="false" name="Vrijeme">
-      <Hierarchy name="&#268;itavo vrijeme" visible="true" hasAll="true" primaryKey="time_id">
+      <Hierarchy visible="true" hasAll="true" allMemberName="Svi Periodi" primaryKey="time_id">
         <Table name="dim_time" schema="public">
         </Table>
-        <Level name="Godina" visible="true" table="dim_time" column="year" uniqueMembers="false" levelType="TimeYears">
+        <Level name="Godina" visible="true" table="dim_time" column="year" type="Numeric" uniqueMembers="true" levelType="TimeYears">
         </Level>
-        <Level name="Mjesec" visible="true" table="dim_time" column="month" uniqueMembers="false" levelType="TimeMonths">
+        <Level name="Mjesec" visible="true" table="dim_time" column="month" type="Numeric" uniqueMembers="false" levelType="TimeMonths">
         </Level>
-        <Level name="Dan" visible="true" table="dim_time" column="day" uniqueMembers="false" levelType="TimeDays">
+        <Level name="Dan" visible="true" table="dim_time" column="day" type="Numeric" uniqueMembers="false" levelType="TimeDays">
         </Level>
-        <Level name="Dan u hefti" visible="true" column="day_of_week" uniqueMembers="false" levelType="TimeDays">
+        <Level name="Dan u hefti" visible="true" table="dim_time" column="day_of_week" type="Numeric" uniqueMembers="true" levelType="TimeDays">
         </Level>
       </Hierarchy>
     </Dimension>
