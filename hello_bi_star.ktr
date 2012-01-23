@@ -69,6 +69,28 @@
   <notepads>
   </notepads>
   <connection>
+    <name>fit_olap</name>
+    <server>fit.bring.out.ba</server>
+    <type>POSTGRESQL</type>
+    <access>Native</access>
+    <database>fit_olap</database>
+    <port>5432</port>
+    <username>admin</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb79ce71da9fa6d4</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>5432</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
     <name>hello_olap</name>
     <server>localhost</server>
     <type>POSTGRESQL</type>
@@ -258,7 +280,7 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>hello_olap</connection>
+    <connection>fit_olap</connection>
     <schema>public</schema>
     <table>fact_invoices</table>
     <commit>1000</commit>
@@ -361,7 +383,7 @@
            </partitioning>
       <schema>public</schema>
       <table>dim_gradovi</table>
-      <connection>hello_olap</connection>
+      <connection>fit_olap</connection>
       <commit>100</commit>
       <cache_size>9999</cache_size>
       <replace>Y</replace>
@@ -400,7 +422,7 @@
            </partitioning>
       <schema>public</schema>
       <table>dim_art_kategorije</table>
-      <connection>hello_olap</connection>
+      <connection>fit_olap</connection>
       <commit>100</commit>
       <cache_size>9999</cache_size>
       <replace>Y</replace>
@@ -439,7 +461,7 @@
            </partitioning>
       <schema>public</schema>
       <table>dim_partneri</table>
-      <connection>hello_olap</connection>
+      <connection>fit_olap</connection>
       <commit>100</commit>
       <cache_size>9999</cache_size>
       <replace>Y</replace>
@@ -478,7 +500,7 @@
            </partitioning>
       <schema>public</schema>
       <table>dim_artikli</table>
-      <connection>hello_olap</connection>
+      <connection>fit_olap</connection>
       <commit>100</commit>
       <cache_size>9999</cache_size>
       <replace>Y</replace>
@@ -517,7 +539,7 @@
            </partitioning>
       <schema>public</schema>
       <table>dim_cijene</table>
-      <connection>hello_olap</connection>
+      <connection>fit_olap</connection>
       <commit>100</commit>
       <cache_size>9999</cache_size>
       <replace>N</replace>
@@ -716,7 +738,7 @@
            </partitioning>
       <schema>public</schema>
       <table>dim_time</table>
-      <connection>hello_olap</connection>
+      <connection>fit_olap</connection>
       <commit>100</commit>
       <cache_size>9999</cache_size>
       <replace>Y</replace>
