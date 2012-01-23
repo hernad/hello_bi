@@ -9,4 +9,3 @@ DS=fit_olap
 rsync -v saiku-datasource_$DS $HOST:$ROOT_DIR/saiku-server/tomcat/webapps/saiku/WEB-INF/classes/saiku-datasources/$DS
 
 
-
