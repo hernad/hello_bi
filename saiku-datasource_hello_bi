@@ -1,0 +1,6 @@
+type=OLAP
+name=hello_bi
+driver=mondrian.olap4j.MondrianOlap4jDriver
+location=jdbc:mondrian:Jdbc=jdbc:postgresql://localhost:5432/hello_olap;JdbcDrivers=org.postgresql.Driver;Catalog=res:hello_bi/schema_hello_bi.xml;
+username=admin
+password=xxxx
