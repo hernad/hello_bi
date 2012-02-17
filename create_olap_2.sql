@@ -35,6 +35,29 @@ CREATE TABLE "public".dim_art_gru
       grupa text
 );
 
+DROP TABLE IF EXISTS public.dim_vrij_rac CASCADE;
+CREATE TABLE "public".dim_vrij_rac
+(
+      id BIGSERIAL PRIMARY KEY, 
+      d_limit int,
+      g_limit int,
+      opis text
+);
+
+DROP TABLE IF EXISTS public.dt_vrijeme CASCADE;
+CREATE TABLE "public".dt_vrijeme
+(
+      dat date PRIMARY KEY, 
+      god int,
+      mjes int,
+      dan int,
+      dan_u_hefti int,
+      hefta_opis text,
+      hefta_opis_skr text,
+      mjes_opis text,
+      mjes_opis_skr text
+);
+
 
 DROP TABLE IF EXISTS public.ft_fakt CASCADE;
 CREATE TABLE "public".ft_fakt
@@ -49,12 +72,4 @@ CREATE TABLE "public".ft_fakt
 );
 
 
-DROP TABLE IF EXISTS public.dim_vrij_rac CASCADE;
-CREATE TABLE "public".dim_vrij_rac
-(
-      id BIGSERIAL PRIMARY KEY, 
-      d_limit int,
-      g_limit int,
-      opis text
-);
 

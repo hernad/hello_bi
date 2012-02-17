@@ -1,4 +1,4 @@
-{title: "F18 knowhow OLAP model"; title-size: 20}
+#{title: "F18 knowhow OLAP model"; title-size: 20}
 
 [ft_fakt] {color: "red"}
 *id
@@ -8,14 +8,12 @@ kolicina
 cijena
 iznos
 
-
 [dt_vrijeme]
-*dat
-year
-month
-day
-month_desc
-month_short_desc
+dat
+mjes
+dan
+mjes_opis
+mjes_opis_skr
 
 [dim_art]
 *id
@@ -37,8 +35,8 @@ grupa
 grad
 grad_short
 
-[dim_hr]
-*id
+#[dim_hr]
+#*id
 
 
 [dt_vrijeme] 1--*  [ft_fakt] <id - id_vrijeme ->

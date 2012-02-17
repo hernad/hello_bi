@@ -1,6 +1,6 @@
 # 11.02.2012
 
-{title: "F18 model"; title-size: 20}
+#{title: "F18 model"; title-size: 20}
 
 [fakt_fakt] {color: "red"}
 *idfirma*
