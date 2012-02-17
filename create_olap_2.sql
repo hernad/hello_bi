@@ -8,9 +8,23 @@ CREATE TABLE "public".dim_g
 );
 
 
+DROP TABLE IF EXISTS public.dim_part CASCADE;
 CREATE TABLE "public".dim_part
 (
       id BIGSERIAL PRIMARY KEY, 
       idpartn varchar(6) 
+);
+
+DROP TABLE IF EXISTS public.dim_art CASCADE;
+CREATE TABLE "public".dim_art
+(
+      id BIGSERIAL PRIMARY KEY, 
+      idroba text,
+      naziv text,
+      kategorija text,
+      grupa text,
+      nc numeric(12,2),
+      vpc numeric(12,2),
+      mpc numeric(12,2)
 );
 
