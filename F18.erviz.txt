@@ -1,0 +1,55 @@
+# 11.02.2012
+
+{title: "F18 model"; title-size: 20}
+
+[fakt_fakt] {color: "red"}
+*idfirma*
+*idtipdok*
+*brdok*
+*rbr
+idpartn
+idroba*
+kolicina
+cijena
+rabat
+
+[fakt_doks] {color: "red"}
+*idfirma
+*idtipdok
+*brdok
+idpartn*
+datdok
+dat_isp
+dat_otpr
+dat_val
+fisc_rn {mark: "[br. fisk racuna]" }
+fisc_st {mark: "[reklamirani fisk rn]"}
+
+[fakt_doks2]
+*idfirma*
+*idtipdok*
+*brdok*
+k1
+k2
+k3
+
+[partn]
+*id
+naz
+ptt
+mjesto
+
+[roba]
+*id
+naz
+idtarifa
+vpc
+nc
+mpc
+barkod
+
+[fakt_doks] 1--1 [fakt_doks2] <idfirma, idtipdok, brdok ->
+[fakt_doks] 1--+ [fakt_fakt] <idfirma, idtipdok, brdok ->
+
+[partn] 1--*  [fakt_doks] <id - idpartn ->
+[roba] 1--*  [fakt_fakt] <id - idroba ->

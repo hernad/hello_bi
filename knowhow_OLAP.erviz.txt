@@ -1,0 +1,48 @@
+{title: "F18 knowhow OLAP model"; title-size: 20}
+
+[ft_fakt] {color: "red"}
+*id
+dat*
+art_id*
+kolicina
+cijena
+iznos
+
+
+[dt_vrijeme]
+*dat
+year
+month
+day
+month_desc
+month_short_desc
+
+[dim_art]
+*id
+idroba
+naziv
+kategorija
+id_grupa*
+nc
+vpc
+mpc
+
+[dim_art_gru]
+*id
+grupa
+
+
+[dim_grad]
+*id
+grad
+grad_short
+
+[dim_hr]
+*id
+
+
+[dt_vrijeme] 1--*  [ft_fakt] <id - id_vrijeme ->
+#[dim_hr] 1--*  [ft_fakt] <id - id_hr ->
+[dim_grad] 1--*  [ft_fakt] <id - id_grad ->
+[dim_art] 1--* [ft_fakt] <id - id_art ->
+[dim_art_gru] 1--* [dim_art] <id - id_grupa ->
