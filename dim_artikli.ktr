@@ -113,48 +113,7 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>lookup idroba4</from><to>Switch &#47; Case</to><enabled>Y</enabled> </hop>  <hop> <from>Switch &#47; Case</from><to>nepoznati_artikli</to><enabled>Y</enabled> </hop>  <hop> <from>get_roba</from><to>lookup idroba4</to><enabled>Y</enabled> </hop>  <hop> <from>dim art</from><to>Update art fields</to><enabled>Y</enabled> </hop>  <hop> <from>Switch &#47; Case</from><to>dim art</to><enabled>Y</enabled> </hop>  <hop> <from>artikli_kat</from><to>lookup idroba4</to><enabled>Y</enabled> </hop>  </order>
-  <step>
-    <name>lookup idroba4</name>
-    <type>StreamLookup</type>
-    <description/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <from>artikli_kat</from>
-    <input_sorted>N</input_sorted>
-    <preserve_memory>Y</preserve_memory>
-    <sorted_list>N</sorted_list>
-    <integer_pair>N</integer_pair>
-    <lookup>
-      <key>
-        <name>idroba4</name>
-        <field>idroba4</field>
-      </key>
-      <value>
-        <name>kategorija</name>
-        <rename>kategorija</rename>
-        <default/>
-        <type>String</type>
-      </value>
-      <value>
-        <name>grupa</name>
-        <rename>grupa</rename>
-        <default/>
-        <type>String</type>
-      </value>
-    </lookup>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>237</xloc>
-      <yloc>190</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
+  <hop> <from>lookup idroba4</from><to>Switch &#47; Case</to><enabled>Y</enabled> </hop>  <hop> <from>Switch &#47; Case</from><to>nepoznati_artikli</to><enabled>Y</enabled> </hop>  <hop> <from>get_roba</from><to>lookup idroba4</to><enabled>Y</enabled> </hop>  <hop> <from>Switch &#47; Case</from><to>dim art gru</to><enabled>Y</enabled> </hop>  <hop> <from>artikli_kat</from><to>lookup idroba4</to><enabled>Y</enabled> </hop>  <hop> <from>dim art gru</from><to>dim art</to><enabled>Y</enabled> </hop>  <hop> <from>lookup dim_art_gru</from><to>Update group_id</to><enabled>Y</enabled> </hop>  <hop> <from>dim art</from><to>Update art fields</to><enabled>Y</enabled> </hop>  <hop> <from>dim art</from><to>lookup dim_art_gru</to><enabled>Y</enabled> </hop>  </order>
   <step>
     <name>Switch &#47; Case</name>
     <type>SwitchCase</type>
@@ -171,20 +130,20 @@
 <case_value_format/>
 <case_value_decimal/>
 <case_value_group/>
-<default_target_step>dim art</default_target_step>
+<default_target_step>dim art gru</default_target_step>
 <cases><case><value/>
 <target_step>nepoznati_artikli</target_step>
 </case></cases>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>388</xloc>
-      <yloc>148</yloc>
+      <xloc>284</xloc>
+      <yloc>178</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>get_roba</name>
-    <type>TableInput</type>
+    <name>Update art fields</name>
+    <type>Update</type>
     <description/>
     <distribute>Y</distribute>
     <copies>1</copies>
@@ -192,24 +151,53 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>F18_bringout</connection>
-    <sql>select rtrim(id) as idroba, naz as naziv, rtrim(rpad(id, 4)) as idroba4, nc, vpc, mpc from fmk.roba order by id</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
+    <connection>fit_dw</connection>
+    <skip_lookup>N</skip_lookup>
+    <commit>100</commit>
+    <use_batch>N</use_batch>
+    <error_ignored>N</error_ignored>
+    <ignore_flag_field/>
+    <lookup>
+      <schema/>
+      <table>dim_art</table>
+      <key>
+        <name>idroba</name>
+        <field>idroba</field>
+        <condition>=</condition>
+        <name2/>
+        </key>
+      <value>
+        <name>nc</name>
+        <rename>nc</rename>
+        </value>
+      <value>
+        <name>vpc</name>
+        <rename>vpc</rename>
+        </value>
+      <value>
+        <name>mpc</name>
+        <rename>mpc</rename>
+        </value>
+      <value>
+        <name>kategorija</name>
+        <rename>kategorija</rename>
+        </value>
+      <value>
+        <name>naziv</name>
+        <rename>naziv</rename>
+        </value>
+      </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>72</xloc>
-      <yloc>187</yloc>
+      <xloc>600</xloc>
+      <yloc>130</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>dim art</name>
-    <type>CombinationLookup</type>
+    <name>Update group_id</name>
+    <type>Update</type>
     <description/>
     <distribute>Y</distribute>
     <copies>1</copies>
@@ -217,31 +205,30 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
+    <connection>fit_dw</connection>
+    <skip_lookup>N</skip_lookup>
+    <commit>100</commit>
+    <use_batch>N</use_batch>
+    <error_ignored>N</error_ignored>
+    <ignore_flag_field/>
+    <lookup>
       <schema>public</schema>
       <table>dim_art</table>
-      <connection>fit_dw</connection>
-      <commit>1</commit>
-      <cache_size>9999</cache_size>
-      <replace>N</replace>
-      <crc>N</crc>
-      <crcfield>hashcode</crcfield>
-      <fields>
-        <key>
-          <name>idroba</name>
-          <lookup>idroba</lookup>
+      <key>
+        <name>idroba</name>
+        <field>idroba</field>
+        <condition>=</condition>
+        <name2/>
         </key>
-        <return>
-          <name>id</name>
-          <creation_method>tablemax</creation_method>
-          <use_autoinc>N</use_autoinc>
-        </return>
-      </fields>
-      <sequence/>
-      <last_update_field/>
+      <value>
+        <name>grupa_id</name>
+        <rename>grupa_id</rename>
+        </value>
+      </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>510</xloc>
-      <yloc>84</yloc>
+      <xloc>644</xloc>
+      <yloc>25</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -343,8 +330,193 @@
     <spreadsheet_type>JXL</spreadsheet_type>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>234</xloc>
-      <yloc>27</yloc>
+      <xloc>180</xloc>
+      <yloc>51</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>dim art</name>
+    <type>CombinationLookup</type>
+    <description/>
+    <distribute>N</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <schema>public</schema>
+      <table>dim_art</table>
+      <connection>fit_dw</connection>
+      <commit>1</commit>
+      <cache_size>9999</cache_size>
+      <replace>N</replace>
+      <crc>N</crc>
+      <crcfield>hashcode</crcfield>
+      <fields>
+        <key>
+          <name>idroba</name>
+          <lookup>idroba</lookup>
+        </key>
+        <return>
+          <name>id</name>
+          <creation_method>tablemax</creation_method>
+          <use_autoinc>N</use_autoinc>
+        </return>
+      </fields>
+      <sequence/>
+      <last_update_field/>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>436</xloc>
+      <yloc>84</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>dim art gru</name>
+    <type>CombinationLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <schema>public</schema>
+      <table>dim_art_gru</table>
+      <connection>fit_dw</connection>
+      <commit>1</commit>
+      <cache_size>9999</cache_size>
+      <replace>N</replace>
+      <crc>N</crc>
+      <crcfield>hashcode</crcfield>
+      <fields>
+        <key>
+          <name>grupa</name>
+          <lookup>grupa</lookup>
+        </key>
+        <return>
+          <name>id</name>
+          <creation_method>tablemax</creation_method>
+          <use_autoinc>N</use_autoinc>
+        </return>
+      </fields>
+      <sequence/>
+      <last_update_field/>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>368</xloc>
+      <yloc>124</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>get_roba</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>F18_bringout</connection>
+    <sql>select rtrim(id) as idroba, naz as naziv, rtrim(rpad(id, 4)) as idroba4, nc, vpc, mpc from fmk.roba order by id</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>63</xloc>
+      <yloc>180</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>lookup dim_art_gru</name>
+    <type>DBLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>fit_dw</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema>public</schema>
+      <table>dim_art_gru</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>grupa</name>
+        <field>grupa</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>id</name>
+        <rename>grupa_id</rename>
+        <default/>
+        <type>Integer</type>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>554</xloc>
+      <yloc>26</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>lookup idroba4</name>
+    <type>StreamLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <from>artikli_kat</from>
+    <input_sorted>N</input_sorted>
+    <preserve_memory>Y</preserve_memory>
+    <sorted_list>N</sorted_list>
+    <integer_pair>N</integer_pair>
+    <lookup>
+      <key>
+        <name>idroba4</name>
+        <field>idroba4</field>
+      </key>
+      <value>
+        <name>kategorija</name>
+        <rename>kategorija</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>grupa</name>
+        <rename>grupa</rename>
+        <default/>
+        <type>String</type>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>178</xloc>
+      <yloc>177</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -400,66 +572,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>484</xloc>
-      <yloc>247</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Update art fields</name>
-    <type>Update</type>
-    <description/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>fit_dw</connection>
-    <skip_lookup>N</skip_lookup>
-    <commit>100</commit>
-    <use_batch>N</use_batch>
-    <error_ignored>N</error_ignored>
-    <ignore_flag_field/>
-    <lookup>
-      <schema/>
-      <table>dim_art</table>
-      <key>
-        <name>idroba</name>
-        <field>idroba</field>
-        <condition>=</condition>
-        <name2/>
-        </key>
-      <value>
-        <name>nc</name>
-        <rename>nc</rename>
-        </value>
-      <value>
-        <name>vpc</name>
-        <rename>vpc</rename>
-        </value>
-      <value>
-        <name>mpc</name>
-        <rename>mpc</rename>
-        </value>
-      <value>
-        <name>kategorija</name>
-        <rename>kategorija</rename>
-        </value>
-      <value>
-        <name>grupa</name>
-        <rename>grupa</rename>
-        </value>
-      <value>
-        <name>naziv</name>
-        <rename>naziv</rename>
-        </value>
-      </lookup>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>637</xloc>
-      <yloc>86</yloc>
+      <xloc>417</xloc>
+      <yloc>264</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

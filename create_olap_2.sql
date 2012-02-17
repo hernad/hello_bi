@@ -22,9 +22,16 @@ CREATE TABLE "public".dim_art
       idroba text,
       naziv text,
       kategorija text,
-      grupa text,
+      grupa_id bigint, 
       nc numeric(12,2),
       vpc numeric(12,2),
       mpc numeric(12,2)
+);
+
+DROP TABLE IF EXISTS public.dim_art_gru CASCADE;
+CREATE TABLE "public".dim_art_gru
+(
+      id BIGSERIAL PRIMARY KEY, 
+      grupa text
 );
 
