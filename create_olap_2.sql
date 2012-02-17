@@ -22,7 +22,7 @@ CREATE TABLE "public".dim_art
       idroba text,
       naziv text,
       kategorija text,
-      grupa_id bigint, 
+      id_grupa bigint, 
       nc numeric(12,2),
       vpc numeric(12,2),
       mpc numeric(12,2)
@@ -33,5 +33,28 @@ CREATE TABLE "public".dim_art_gru
 (
       id BIGSERIAL PRIMARY KEY, 
       grupa text
+);
+
+
+DROP TABLE IF EXISTS public.ft_fakt CASCADE;
+CREATE TABLE "public".ft_fakt
+(
+      id BIGSERIAL PRIMARY KEY,
+      dat date, 
+      id_art bigint,
+      id_partner bigint,
+      kolicina numeric(14,4),
+      cijena numeric(14,4),
+      vrijednost numeric(18,2)
+);
+
+
+DROP TABLE IF EXISTS public.dim_vrij_rac CASCADE;
+CREATE TABLE "public".dim_vrij_rac
+(
+      id BIGSERIAL PRIMARY KEY, 
+      d_limit int,
+      g_limit int,
+      opis text
 );
 
