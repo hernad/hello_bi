@@ -161,8 +161,8 @@
       <schema/>
       <table>dim_art</table>
       <key>
-        <name>idroba</name>
-        <field>idroba</field>
+        <name>bk_idroba</name>
+        <field>bk_idroba</field>
         <condition>=</condition>
         <name2/>
         </key>
@@ -189,8 +189,8 @@
       </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>560</xloc>
-      <yloc>127</yloc>
+      <xloc>561</xloc>
+      <yloc>122</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -215,8 +215,8 @@
       <schema>public</schema>
       <table>dim_art</table>
       <key>
-        <name>idroba</name>
-        <field>idroba</field>
+        <name>bk_idroba</name>
+        <field>bk_idroba</field>
         <condition>=</condition>
         <name2/>
         </key>
@@ -356,8 +356,8 @@
       <crcfield>hashcode</crcfield>
       <fields>
         <key>
-          <name>idroba</name>
-          <lookup>idroba</lookup>
+          <name>bk_idroba</name>
+          <lookup>bk_idroba</lookup>
         </key>
         <return>
           <name>id</name>
@@ -369,8 +369,8 @@
       <last_update_field/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>451</xloc>
-      <yloc>77</yloc>
+      <xloc>448</xloc>
+      <yloc>68</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -408,8 +408,8 @@
       <last_update_field/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>368</xloc>
-      <yloc>124</yloc>
+      <xloc>356</xloc>
+      <yloc>120</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -425,7 +425,7 @@
            <schema_name/>
            </partitioning>
     <connection>F18_bringout</connection>
-    <sql>select rtrim(id) as idroba, naz as naziv, rtrim(rpad(id, 4)) as idroba4, nc, vpc, mpc from fmk.roba order by id</sql>
+    <sql>select rtrim(id) as bk_idroba, naz as naziv, rtrim(rpad(id, 4)) as idroba4, nc, vpc, mpc from fmk.roba order by id</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>

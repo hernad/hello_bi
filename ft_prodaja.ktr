@@ -113,10 +113,10 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>get_fakt</from><to>lookup dim_art</to><enabled>Y</enabled> </hop>  <hop> <from>lookup dim_art</from><to>lookup d_t</to><enabled>Y</enabled> </hop>  <hop> <from>ukloni nepotrebna polja</from><to>ft_fakt</to><enabled>Y</enabled> </hop>  <hop> <from>lookup d_t</from><to>ukloni nepotrebna polja</to><enabled>Y</enabled> </hop>  <hop> <from>lookup dim_art</from><to>err art</to><enabled>Y</enabled> </hop>  <hop> <from>lookup d_t</from><to>err time</to><enabled>Y</enabled> </hop>  <hop> <from>err time</from><to>nepoznata_prodaja</to><enabled>Y</enabled> </hop>  <hop> <from>err art</from><to>nepoznata_prodaja</to><enabled>Y</enabled> </hop>  </order>
+  <hop> <from>lookup d_t</from><to>ukloni nepotrebna polja</to><enabled>Y</enabled> </hop>  <hop> <from>lookup d_t</from><to>err time</to><enabled>Y</enabled> </hop>  <hop> <from>err time</from><to>nepoznata_prodaja</to><enabled>Y</enabled> </hop>  <hop> <from>get_fakt</from><to>lookup dim_part</to><enabled>Y</enabled> </hop>  <hop> <from>err art</from><to>nepoznata_prodaja</to><enabled>Y</enabled> </hop>  <hop> <from>lookup dim_part</from><to>err part</to><enabled>Y</enabled> </hop>  <hop> <from>err part</from><to>nepoznata_prodaja</to><enabled>Y</enabled> </hop>  <hop> <from>ukloni nepotrebna polja</from><to>dt_fakt</to><enabled>Y</enabled> </hop>  <hop> <from>lookup dim_part</from><to>Database lookup</to><enabled>Y</enabled> </hop>  <hop> <from>Database lookup</from><to>lookup d_t</to><enabled>Y</enabled> </hop>  <hop> <from>Database lookup</from><to>err art</to><enabled>Y</enabled> </hop>  </order>
   <step>
-    <name>get_fakt</name>
-    <type>TableInput</type>
+    <name>err art</name>
+    <type>Constant</type>
     <description/>
     <distribute>Y</distribute>
     <copies>1</copies>
@@ -124,8 +124,92 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
+    <fields>
+      <field>
+        <name>ERROR</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>ERR_ART</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>god</name>
+        <type>Number</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>0</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>256</xloc>
+      <yloc>224</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>err time</name>
+    <type>Constant</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <name>ERROR</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>ERR_TIME</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>god</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>0</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>358</xloc>
+      <yloc>223</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>get_fakt</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>N</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
     <connection>F18_bringout</connection>
-    <sql>select fmk.fakt_doks.idtipdok, fakt_doks.brdok, fakt_doks.datdok as dat, fakt_fakt.kolicina, fakt_fakt.cijena *  (1 - COALESCE(fakt_fakt.rabat,0)&#47;100) as cijena, fakt_fakt.rabat, fakt_fakt.kolicina * fakt_fakt.cijena * (1 - COALESCE(fakt_fakt.rabat,0)&#47;100) as vrijednost, rtrim(fakt_fakt.idroba) as idroba, rtrim(fakt_doks.idpartner) as idpartner
+    <sql>select fmk.fakt_doks.idtipdok, fakt_doks.brdok, fakt_doks.datdok as dat, fakt_fakt.kolicina, fakt_fakt.cijena *  (1 - COALESCE(fakt_fakt.rabat,0)&#47;100) as cijena, fakt_fakt.rabat, fakt_fakt.kolicina * fakt_fakt.cijena * (1 - COALESCE(fakt_fakt.rabat,0)&#47;100) as vrijednost, rtrim(fakt_fakt.idroba) as bk_idroba, rtrim(fakt_doks.idpartner) as bk_idpartner
 from  fmk.fakt_fakt, fmk.fakt_doks 
 where 
 fakt_fakt.idfirma = fakt_doks.idfirma and fakt_fakt.idtipdok = fakt_doks.idtipdok and fakt_fakt.brdok = fakt_doks.brdok
@@ -138,14 +222,14 @@ order by fakt_doks.idfirma, fakt_doks.idtipdok, fakt_doks.brdok</sql>
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>64</xloc>
-      <yloc>72</yloc>
+      <xloc>24</xloc>
+      <yloc>62</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>lookup dim_art</name>
+    <name>lookup d_t</name>
     <type>DBLookup</type>
     <description/>
     <distribute>N</distribute>
@@ -160,27 +244,27 @@ order by fakt_doks.idfirma, fakt_doks.idtipdok, fakt_doks.brdok</sql>
     <cache_size>0</cache_size>
     <lookup>
       <schema>public</schema>
-      <table>dim_art</table>
+      <table>dt_vrijeme</table>
       <orderby/>
       <fail_on_multiple>N</fail_on_multiple>
       <eat_row_on_failure>N</eat_row_on_failure>
       <key>
-        <name>idroba</name>
-        <field>idroba</field>
+        <name>dat</name>
+        <field>dat</field>
         <condition>=</condition>
         <name2/>
       </key>
       <value>
-        <name>id</name>
-        <rename>id_art</rename>
+        <name>god</name>
+        <rename>god</rename>
         <default/>
         <type>Integer</type>
       </value>
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>185</xloc>
-      <yloc>73</yloc>
+      <xloc>363</xloc>
+      <yloc>67</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -330,10 +414,10 @@ order by fakt_doks.idfirma, fakt_doks.idtipdok, fakt_doks.brdok</sql>
         <hyperlinkField/>
       </field>
       <field>
-        <name>idroba</name>
+        <name>bk_idroba</name>
         <type>String</type>
         <format/>
-        <title>idroba</title>
+        <title>bk_idroba</title>
         <titleStyleCell/>
         <styleCell/>
         <commentField/>
@@ -342,22 +426,10 @@ order by fakt_doks.idfirma, fakt_doks.idtipdok, fakt_doks.brdok</sql>
         <hyperlinkField/>
       </field>
       <field>
-        <name>idpartner</name>
+        <name>bk_idpartner</name>
         <type>String</type>
         <format/>
-        <title>idpartner</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>god</name>
-        <type>Number</type>
-        <format/>
-        <title>lookup god</title>
+        <title>bk_idpartner</title>
         <titleStyleCell/>
         <styleCell/>
         <commentField/>
@@ -368,65 +440,8 @@ order by fakt_doks.idfirma, fakt_doks.idtipdok, fakt_doks.brdok</sql>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>272</xloc>
-      <yloc>262</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>ft_fakt</name>
-    <type>TableOutput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>fit_dw</connection>
-    <schema>public</schema>
-    <table>ft_fakt</table>
-    <commit>1000</commit>
-    <truncate>Y</truncate>
-    <ignore_errors>N</ignore_errors>
-    <use_batch>N</use_batch>
-    <specify_fields>N</specify_fields>
-    <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field/>
-    <partitioning_daily>N</partitioning_daily>
-    <partitioning_monthly>Y</partitioning_monthly>
-    <tablename_in_field>N</tablename_in_field>
-    <tablename_field/>
-    <tablename_in_table>Y</tablename_in_table>
-    <return_keys>Y</return_keys>
-    <return_field>id</return_field>
-    <fields>
-        <field>
-          <column_name>kolicina</column_name>
-          <stream_name>kolicina</stream_name>
-        </field>
-        <field>
-          <column_name>cijena</column_name>
-          <stream_name>cijena</stream_name>
-        </field>
-        <field>
-          <column_name>vrijednost</column_name>
-          <stream_name>vrijednost</stream_name>
-        </field>
-        <field>
-          <column_name>id_art</column_name>
-          <stream_name>id_art</stream_name>
-        </field>
-        <field>
-          <column_name>dat</column_name>
-          <stream_name>dat</stream_name>
-        </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>617</xloc>
-      <yloc>72</yloc>
+      <xloc>258</xloc>
+      <yloc>326</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -442,22 +457,22 @@ order by fakt_doks.idfirma, fakt_doks.idtipdok, fakt_doks.brdok</sql>
            <schema_name/>
            </partitioning>
     <fields>        <select_unspecified>N</select_unspecified>
-      <remove>        <name>brdok</name>
-      </remove>      <remove>        <name>idroba</name>
-      </remove>      <remove>        <name>idtipdok</name>
-      </remove>      <remove>        <name>idpartner</name>
+      <remove>        <name>idtipdok</name>
+      </remove>      <remove>        <name>brdok</name>
       </remove>      <remove>        <name>rabat</name>
-      </remove>      <remove>        <name>god</name>
+      </remove>      <remove>        <name>bk_idroba</name>
+      </remove>      <remove>        <name>bk_idpartner</name>
+      </remove>      <remove>        <name>mjes</name>
       </remove>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>488</xloc>
-      <yloc>73</yloc>
+      <xloc>511</xloc>
+      <yloc>66</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>lookup d_t</name>
+    <name>lookup dim_part</name>
     <type>DBLookup</type>
     <description/>
     <distribute>N</distribute>
@@ -472,33 +487,33 @@ order by fakt_doks.idfirma, fakt_doks.idtipdok, fakt_doks.brdok</sql>
     <cache_size>0</cache_size>
     <lookup>
       <schema>public</schema>
-      <table>dt_vrijeme</table>
+      <table>dim_par</table>
       <orderby/>
       <fail_on_multiple>N</fail_on_multiple>
       <eat_row_on_failure>N</eat_row_on_failure>
       <key>
-        <name>dat</name>
-        <field>dat</field>
+        <name>bk_idpartner</name>
+        <field>bk_idpartner</field>
         <condition>=</condition>
         <name2/>
       </key>
       <value>
-        <name>god</name>
-        <rename>god</rename>
+        <name>id</name>
+        <rename>id_partner</rename>
         <default/>
         <type>Integer</type>
       </value>
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>348</xloc>
-      <yloc>73</yloc>
+      <xloc>140</xloc>
+      <yloc>64</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>err art</name>
+    <name>err part</name>
     <type>Constant</type>
     <description/>
     <distribute>Y</distribute>
@@ -515,7 +530,7 @@ order by fakt_doks.idfirma, fakt_doks.idtipdok, fakt_doks.brdok</sql>
         <currency/>
         <decimal/>
         <group/>
-        <nullif>ERR_ART</nullif>
+        <nullif>ERR_PART</nullif>
         <length>-1</length>
         <precision>-1</precision>
       </field>
@@ -533,15 +548,15 @@ order by fakt_doks.idfirma, fakt_doks.idtipdok, fakt_doks.brdok</sql>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>183</xloc>
-      <yloc>186</yloc>
+      <xloc>143</xloc>
+      <yloc>218</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>err time</name>
-    <type>Constant</type>
+    <name>dt_fakt</name>
+    <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
     <copies>1</copies>
@@ -549,31 +564,98 @@ order by fakt_doks.idfirma, fakt_doks.idtipdok, fakt_doks.brdok</sql>
            <method>none</method>
            <schema_name/>
            </partitioning>
+    <connection>fit_dw</connection>
+    <schema>public</schema>
+    <table>ft_fakt</table>
+    <commit>1000</commit>
+    <truncate>Y</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>N</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
     <fields>
-      <field>
-        <name>ERROR</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>ERR TIME</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
+        <field>
+          <column_name>id_partner</column_name>
+          <stream_name>id_partner</stream_name>
+        </field>
+        <field>
+          <column_name>vrijednost</column_name>
+          <stream_name>vrijednost</stream_name>
+        </field>
+        <field>
+          <column_name>cijena</column_name>
+          <stream_name>cijena</stream_name>
+        </field>
+        <field>
+          <column_name>kolicina</column_name>
+          <stream_name>kolicina</stream_name>
+        </field>
+        <field>
+          <column_name>dat</column_name>
+          <stream_name>dat</stream_name>
+        </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>346</xloc>
-      <yloc>187</yloc>
+      <xloc>638</xloc>
+      <yloc>70</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Database lookup</name>
+    <type>DBLookup</type>
+    <description/>
+    <distribute>N</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>fit_dw</connection>
+    <cache>Y</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema>public</schema>
+      <table>dim_art</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>bk_idroba</name>
+        <field>idroba</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>id</name>
+        <rename>id_artikal</rename>
+        <default/>
+        <type>Integer</type>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>259</xloc>
+      <yloc>64</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step_error_handling>
       <error>
-        <source_step>lookup dim_art</source_step>
-        <target_step>err art</target_step>
+        <source_step>lookup d_t</source_step>
+        <target_step>err time</target_step>
         <is_enabled>Y</is_enabled>
         <nr_valuename/>
         <descriptions_valuename/>
@@ -584,8 +666,20 @@ order by fakt_doks.idfirma, fakt_doks.idtipdok, fakt_doks.brdok</sql>
         <min_pct_rows/>
       </error>
       <error>
-        <source_step>lookup d_t</source_step>
-        <target_step>err time</target_step>
+        <source_step>lookup dim_part</source_step>
+        <target_step>err part</target_step>
+        <is_enabled>Y</is_enabled>
+        <nr_valuename/>
+        <descriptions_valuename/>
+        <fields_valuename/>
+        <codes_valuename/>
+        <max_errors/>
+        <max_pct_errors/>
+        <min_pct_rows/>
+      </error>
+      <error>
+        <source_step>Database lookup</source_step>
+        <target_step>err art</target_step>
         <is_enabled>Y</is_enabled>
         <nr_valuename/>
         <descriptions_valuename/>

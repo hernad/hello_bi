@@ -113,7 +113,7 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>mjesta</from><to>Mjesto lookup</to><enabled>Y</enabled> </hop>  <hop> <from>mjesto_oznaka</from><to>Mjesto lookup Oznaka</to><enabled>Y</enabled> </hop>  <hop> <from>Mjesto lookup</from><to>empty mjesto =&gt; n&#47;a</to><enabled>Y</enabled> </hop>  <hop> <from>empty mjesto =&gt; n&#47;a</from><to>Mjesto lookup Oznaka</to><enabled>Y</enabled> </hop>  <hop> <from>Mjesto lookup Oznaka</from><to>dim_par</to><enabled>Y</enabled> </hop>  <hop> <from>nepoznati gradovi prijavi</from><to>dim_g grad</to><enabled>Y</enabled> </hop>  <hop> <from>nepoznati gradovi prijavi</from><to>nepoznati gradovi</to><enabled>Y</enabled> </hop>  <hop> <from>dim_par</from><to>nepoznati gradovi prijavi</to><enabled>Y</enabled> </hop>  <hop> <from>dim_g grad</from><to>update g</to><enabled>Y</enabled> </hop>  <hop> <from>get_partneri</from><to>Mjesto lookup</to><enabled>Y</enabled> </hop>  <hop> <from>nepoznati gradovi</from><to>Select values</to><enabled>Y</enabled> </hop>  <hop> <from>update g</from><to>lookup id-ovi mi ne trebaju</to><enabled>Y</enabled> </hop>  <hop> <from>lookup id-ovi mi ne trebaju</from><to>lookup grad in dim_g</to><enabled>Y</enabled> </hop>  <hop> <from>Select values</from><to>n&#47;a</to><enabled>Y</enabled> </hop>  <hop> <from>lookup grad in dim_g</from><to>update dim_par grad</to><enabled>Y</enabled> </hop>  <hop> <from>n&#47;a</from><to>lookup grad in dim_g</to><enabled>Y</enabled> </hop>  </order>
+  <hop> <from>mjesta</from><to>Mjesto lookup</to><enabled>Y</enabled> </hop>  <hop> <from>mjesto_oznaka</from><to>Mjesto lookup Oznaka</to><enabled>Y</enabled> </hop>  <hop> <from>Mjesto lookup</from><to>empty mjesto =&gt; n&#47;a</to><enabled>Y</enabled> </hop>  <hop> <from>empty mjesto =&gt; n&#47;a</from><to>Mjesto lookup Oznaka</to><enabled>Y</enabled> </hop>  <hop> <from>Mjesto lookup Oznaka</from><to>dim_par</to><enabled>Y</enabled> </hop>  <hop> <from>nepoznati gradovi prijavi</from><to>dim_g grad</to><enabled>Y</enabled> </hop>  <hop> <from>nepoznati gradovi prijavi</from><to>nepoznati gradovi</to><enabled>Y</enabled> </hop>  <hop> <from>dim_par</from><to>nepoznati gradovi prijavi</to><enabled>Y</enabled> </hop>  <hop> <from>dim_g grad</from><to>update g</to><enabled>Y</enabled> </hop>  <hop> <from>get_partneri</from><to>Mjesto lookup</to><enabled>Y</enabled> </hop>  <hop> <from>nepoznati gradovi</from><to>Select values</to><enabled>Y</enabled> </hop>  <hop> <from>update g</from><to>lookup id-ovi mi ne trebaju</to><enabled>Y</enabled> </hop>  <hop> <from>lookup id-ovi mi ne trebaju</from><to>lookup grad in dim_g</to><enabled>Y</enabled> </hop>  <hop> <from>Select values</from><to>set n&#47;a mjesto, bk_idpartner</to><enabled>Y</enabled> </hop>  <hop> <from>lookup grad in dim_g</from><to>update dim_par grad</to><enabled>Y</enabled> </hop>  <hop> <from>set n&#47;a mjesto, bk_idpartner</from><to>lookup grad in dim_g</to><enabled>Y</enabled> </hop>  </order>
   <step>
     <name>Mjesto lookup</name>
     <type>StreamLookup</type>
@@ -217,8 +217,8 @@
       <last_update_field/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>396</xloc>
-      <yloc>267</yloc>
+      <xloc>186</xloc>
+      <yloc>285</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -349,8 +349,8 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>617</xloc>
-      <yloc>363</yloc>
+      <xloc>481</xloc>
+      <yloc>405</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -531,8 +531,8 @@
     <spreadsheet_type>JXL</spreadsheet_type>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>402</xloc>
-      <yloc>18</yloc>
+      <xloc>404</xloc>
+      <yloc>31</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -648,8 +648,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>330</xloc>
-      <yloc>360</yloc>
+      <xloc>46</xloc>
+      <yloc>408</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -677,8 +677,8 @@
 <target_step>nepoznati gradovi</target_step>
 </case></cases>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>227</xloc>
-      <yloc>280</yloc>
+      <xloc>45</xloc>
+      <yloc>291</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -715,8 +715,8 @@
       </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>616</xloc>
-      <yloc>465</yloc>
+      <xloc>480</xloc>
+      <yloc>511</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -753,8 +753,8 @@
       </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>521</xloc>
-      <yloc>263</yloc>
+      <xloc>326</xloc>
+      <yloc>285</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -776,8 +776,8 @@
       </remove>      <remove>        <name>id_1</name>
       </remove>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>613</xloc>
-      <yloc>265</yloc>
+      <xloc>476</xloc>
+      <yloc>282</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -798,14 +798,14 @@
       </remove>      <remove>        <name>id</name>
       </remove>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>421</xloc>
-      <yloc>362</yloc>
+      <xloc>190</xloc>
+      <yloc>407</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>n&#47;a</name>
+    <name>set n&#47;a mjesto, bk_idpartner</name>
     <type>SetValueConstant</type>
     <description/>
     <distribute>Y</distribute>
@@ -829,8 +829,8 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>518</xloc>
-      <yloc>362</yloc>
+      <xloc>330</xloc>
+      <yloc>405</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

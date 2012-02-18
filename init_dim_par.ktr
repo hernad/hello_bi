@@ -113,53 +113,10 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>generate n&#47;a grad 2</from><to>Delete g</to><enabled>Y</enabled> </hop>  <hop> <from>generate n&#47;a grad</from><to>Delete par</to><enabled>Y</enabled> </hop>  <hop> <from>Delete par</from><to>skloni ne_postoji</to><enabled>Y</enabled> </hop>  <hop> <from>skloni ne_postoji</from><to>dim_par_n&#47;a</to><enabled>Y</enabled> </hop>  <hop> <from>Delete g</from><to>skloni ne_postoji &#47; 2</to><enabled>Y</enabled> </hop>  <hop> <from>skloni ne_postoji &#47; 2</from><to>dim_g n&#47;a</to><enabled>Y</enabled> </hop>  </order>
+  <hop> <from>generate n&#47;a g</from><to>Delete g</to><enabled>Y</enabled> </hop>  <hop> <from>generate n&#47;a par</from><to>Delete par</to><enabled>Y</enabled> </hop>  <hop> <from>Delete par</from><to>skloni ne_postoji</to><enabled>Y</enabled> </hop>  <hop> <from>skloni ne_postoji</from><to>dim_par_n&#47;a</to><enabled>Y</enabled> </hop>  <hop> <from>Delete g</from><to>skloni ne_postoji &#47; 2</to><enabled>Y</enabled> </hop>  <hop> <from>skloni ne_postoji &#47; 2</from><to>dim_g n&#47;a</to><enabled>Y</enabled> </hop>  <hop> <from>generate n&#47;a g 2</from><to>Delete dt_vrijeme</to><enabled>Y</enabled> </hop>  </order>
   <step>
-    <name>generate n&#47;a grad</name>
-    <type>RowGenerator</type>
-    <description/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>
-      <field>
-        <name>bk_idpartner</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>n&#47;a</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>ne_postoji</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>XXXXXXXXXXXXXXX</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-    </fields>
-    <limit>1</limit>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>33</xloc>
-      <yloc>67</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>dim_par_n&#47;a</name>
-    <type>TableOutput</type>
+    <name>Delete g</name>
+    <type>Delete</type>
     <description/>
     <distribute>Y</distribute>
     <copies>1</copies>
@@ -168,32 +125,51 @@
            <schema_name/>
            </partitioning>
     <connection>fit_dw</connection>
-    <schema>public</schema>
-    <table>dim_par</table>
-    <commit>1000</commit>
-    <truncate>N</truncate>
-    <ignore_errors>N</ignore_errors>
-    <use_batch>Y</use_batch>
-    <specify_fields>N</specify_fields>
-    <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field/>
-    <partitioning_daily>N</partitioning_daily>
-    <partitioning_monthly>Y</partitioning_monthly>
-    <tablename_in_field>N</tablename_in_field>
-    <tablename_field/>
-    <tablename_in_table>Y</tablename_in_table>
-    <return_keys>N</return_keys>
-    <return_field/>
-    <fields>
-        <field>
-          <column_name>bk_idpartner</column_name>
-          <stream_name>bk_idpartner</stream_name>
-        </field>
-    </fields>
+    <commit>100</commit>
+    <lookup>
+      <schema>public</schema>
+      <table>dim_g</table>
+      <key>
+        <name>ne_postoji</name>
+        <field>grad</field>
+        <condition>&lt;&gt;</condition>
+        <name2/>
+      </key>
+    </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>372</xloc>
-      <yloc>65</yloc>
+      <xloc>156</xloc>
+      <yloc>158</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Delete par</name>
+    <type>Delete</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>fit_dw</connection>
+    <commit>100</commit>
+    <lookup>
+      <schema>public</schema>
+      <table>dim_par</table>
+      <key>
+        <name>ne_postoji</name>
+        <field>bk_idpartner</field>
+        <condition>&lt;&gt;</condition>
+        <name2/>
+      </key>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>155</xloc>
+      <yloc>64</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -240,8 +216,8 @@
     </step>
 
   <step>
-    <name>Delete par</name>
-    <type>Delete</type>
+    <name>dim_par_n&#47;a</name>
+    <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
     <copies>1</copies>
@@ -250,57 +226,38 @@
            <schema_name/>
            </partitioning>
     <connection>fit_dw</connection>
-    <commit>100</commit>
-    <lookup>
-      <schema>public</schema>
-      <table>dim_par</table>
-      <key>
-        <name>ne_postoji</name>
-        <field>bk_idpartner</field>
-        <condition>&lt;&gt;</condition>
-        <name2/>
-      </key>
-    </lookup>
+    <schema>public</schema>
+    <table>dim_par</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>N</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+        <field>
+          <column_name>bk_idpartner</column_name>
+          <stream_name>bk_idpartner</stream_name>
+        </field>
+    </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>155</xloc>
-      <yloc>64</yloc>
+      <xloc>372</xloc>
+      <yloc>65</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Delete g</name>
-    <type>Delete</type>
-    <description/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>fit_dw</connection>
-    <commit>100</commit>
-    <lookup>
-      <schema>public</schema>
-      <table>dim_g</table>
-      <key>
-        <name>ne_postoji</name>
-        <field>grad</field>
-        <condition>&lt;&gt;</condition>
-        <name2/>
-      </key>
-    </lookup>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>156</xloc>
-      <yloc>158</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>generate n&#47;a grad 2</name>
+    <name>generate n&#47;a g</name>
     <type>RowGenerator</type>
     <description/>
     <distribute>Y</distribute>
@@ -354,6 +311,49 @@
     </step>
 
   <step>
+    <name>generate n&#47;a par</name>
+    <type>RowGenerator</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <name>bk_idpartner</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>n&#47;a</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>ne_postoji</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>XXXXXXXXXXXXXXX</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+    </fields>
+    <limit>1</limit>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>33</xloc>
+      <yloc>67</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
     <name>skloni ne_postoji</name>
     <type>SelectValues</type>
     <description/>
@@ -389,6 +389,68 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>264</xloc>
       <yloc>154</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Delete dt_vrijeme</name>
+    <type>Delete</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>fit_dw</connection>
+    <commit>100</commit>
+    <lookup>
+      <schema>public</schema>
+      <table>dt_vrijeme</table>
+      <key>
+        <name>ne_postoji</name>
+        <field>mjes_opis</field>
+        <condition>&lt;&gt;</condition>
+        <name2/>
+      </key>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>160</xloc>
+      <yloc>260</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>generate n&#47;a g 2</name>
+    <type>RowGenerator</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <name>ne_postoji</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>XXXXXXXXXXXXXXXXXX</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+    </fields>
+    <limit>1</limit>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>38</xloc>
+      <yloc>260</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
