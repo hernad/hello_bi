@@ -1,13 +1,4 @@
 DROP TABLE IF EXISTS public.dim_g CASCADE;
-
-DROP TABLE IF EXISTS public.dim_par CASCADE;
-CREATE TABLE "public".dim_par
-(
-      id BIGSERIAL PRIMARY KEY, 
-      bk_idpartner text,
-      id_grad bigint 
-);
-
 CREATE TABLE "public".dim_g
 (
       id BIGSERIAL PRIMARY KEY, 
@@ -15,6 +6,21 @@ CREATE TABLE "public".dim_g
       region varchar(10) 
 );
 
+DROP TABLE IF EXISTS public.dim_par CASCADE;
+CREATE TABLE "public".dim_par
+(
+      id BIGSERIAL PRIMARY KEY, 
+      bk_idpartner text,
+      id_grad bigint DEFAULT NULL REFERENCES dim_g(id)  ON DELETE SET NULL ON UPDATE SET NULL 
+);
+
+
+DROP TABLE IF EXISTS public.dim_art_gru CASCADE;
+CREATE TABLE "public".dim_art_gru
+(
+      id BIGSERIAL PRIMARY KEY, 
+      grupa text
+);
 
 DROP TABLE IF EXISTS public.dim_art CASCADE;
 CREATE TABLE "public".dim_art
@@ -23,17 +29,10 @@ CREATE TABLE "public".dim_art
       bk_idroba text,
       naziv text,
       kategorija text,
-      id_grupa bigint, 
+      id_grupa bigint REFERENCES dim_art_gru(id), 
       nc numeric(12,2),
       vpc numeric(12,2),
       mpc numeric(12,2)
-);
-
-DROP TABLE IF EXISTS public.dim_art_gru CASCADE;
-CREATE TABLE "public".dim_art_gru
-(
-      id BIGSERIAL PRIMARY KEY, 
-      grupa text
 );
 
 DROP TABLE IF EXISTS public.dim_vrij_rac CASCADE;
@@ -64,9 +63,9 @@ DROP TABLE IF EXISTS public.ft_fakt CASCADE;
 CREATE TABLE "public".ft_fakt
 (
       id BIGSERIAL PRIMARY KEY,
-      dat date          REFERENCES dt_vrijeme(dat), 
-      id_artikal bigint REFERENCES dim_art(id),
-      id_partner bigint REFERENCES dim_par(id),
+      dat date          REFERENCES dt_vrijeme(dat) ON DELETE SET NULL ON UPDATE SET NULL , 
+      id_artikal bigint default NULL REFERENCES dim_art(id) ON DELETE SET NULL ON UPDATE SET NULL ,
+      id_partner bigint default NULL REFERENCES dim_par(id) ON DELETE SET NULL ON UPDATE SET NULL ,
       kolicina numeric(14,4),
       cijena numeric(14,4),
       vrijednost numeric(18,2)
