@@ -113,7 +113,7 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>generate n&#47;a grad 2</from><to>Delete g</to><enabled>Y</enabled> </hop>  <hop> <from>generate n&#47;a grad</from><to>Delete par</to><enabled>Y</enabled> </hop>  <hop> <from>Delete par</from><to>skloni ne_postoji</to><enabled>Y</enabled> </hop>  <hop> <from>skloni ne_postoji</from><to>dim_par_n&#47;a</to><enabled>Y</enabled> </hop>  <hop> <from>Delete g</from><to>Select values 2</to><enabled>Y</enabled> </hop>  <hop> <from>Select values 2</from><to>dim_g n&#47;a</to><enabled>Y</enabled> </hop>  </order>
+  <hop> <from>generate n&#47;a grad 2</from><to>Delete g</to><enabled>Y</enabled> </hop>  <hop> <from>generate n&#47;a grad</from><to>Delete par</to><enabled>Y</enabled> </hop>  <hop> <from>Delete par</from><to>skloni ne_postoji</to><enabled>Y</enabled> </hop>  <hop> <from>skloni ne_postoji</from><to>dim_par_n&#47;a</to><enabled>Y</enabled> </hop>  <hop> <from>Delete g</from><to>skloni ne_postoji &#47; 2</to><enabled>Y</enabled> </hop>  <hop> <from>skloni ne_postoji &#47; 2</from><to>dim_g n&#47;a</to><enabled>Y</enabled> </hop>  </order>
   <step>
     <name>generate n&#47;a grad</name>
     <type>RowGenerator</type>
@@ -286,7 +286,7 @@
       <table>dim_g</table>
       <key>
         <name>ne_postoji</name>
-        <field>region</field>
+        <field>grad</field>
         <condition>&lt;&gt;</condition>
         <name2/>
       </key>
@@ -332,6 +332,17 @@
         <length>-1</length>
         <precision>-1</precision>
       </field>
+      <field>
+        <name>region</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>XX</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
     </fields>
     <limit>1</limit>
      <cluster_schema/>
@@ -363,7 +374,7 @@
     </step>
 
   <step>
-    <name>Select values 2</name>
+    <name>skloni ne_postoji &#47; 2</name>
     <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>
