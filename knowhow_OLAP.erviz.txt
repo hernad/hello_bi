@@ -3,21 +3,26 @@
 [ft_fakt] {color: "red"}
 *id
 dat*
-art_id*
+id_artikal*
+id_partner*
 kolicina
 cijena
 iznos
 
 [dt_vrijeme]
-dat
+*dat
+god
 mjes
 dan
+dan_u_hefti
+hefta_opis
+hefta_opis_skr
 mjes_opis
 mjes_opis_skr
 
 [dim_art]
 *id
-idroba
+bk_idroba
 naziv
 kategorija
 id_grupa*
@@ -29,18 +34,27 @@ mpc
 *id
 grupa
 
+[dim_par]
+*id
+bk_idpartner
+id_grad*
 
-[dim_grad]
+[dim_g]
 *id
 grad
-grad_short
+region
+
 
 #[dim_hr]
 #*id
 
 
-[dt_vrijeme] 1--*  [ft_fakt] <id - id_vrijeme ->
+[dt_vrijeme] 1--*  [ft_fakt] <dat - dat ->
 #[dim_hr] 1--*  [ft_fakt] <id - id_hr ->
-[dim_grad] 1--*  [ft_fakt] <id - id_grad ->
-[dim_art] 1--* [ft_fakt] <id - id_art ->
+
+
+[dim_par] 1--*  [ft_fakt] <id - id_partner ->
+[dim_par] *--1 [dim_g] <id_grad - id -> 
+
+[dim_art] 1--* [ft_fakt] <id - id_artikal ->
 [dim_art_gru] 1--* [dim_art] <id - id_grupa ->

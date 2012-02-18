@@ -1,5 +1,13 @@
 DROP TABLE IF EXISTS public.dim_g CASCADE;
 
+DROP TABLE IF EXISTS public.dim_par CASCADE;
+CREATE TABLE "public".dim_par
+(
+      id BIGSERIAL PRIMARY KEY, 
+      bk_idpartner text,
+      id_grad bigint 
+);
+
 CREATE TABLE "public".dim_g
 (
       id BIGSERIAL PRIMARY KEY, 
@@ -8,18 +16,11 @@ CREATE TABLE "public".dim_g
 );
 
 
-DROP TABLE IF EXISTS public.dim_part CASCADE;
-CREATE TABLE "public".dim_part
-(
-      id BIGSERIAL PRIMARY KEY, 
-      idpartn varchar(6) 
-);
-
 DROP TABLE IF EXISTS public.dim_art CASCADE;
 CREATE TABLE "public".dim_art
 (
       id BIGSERIAL PRIMARY KEY, 
-      idroba text,
+      bk_idroba text,
       naziv text,
       kategorija text,
       id_grupa bigint, 
@@ -63,9 +64,9 @@ DROP TABLE IF EXISTS public.ft_fakt CASCADE;
 CREATE TABLE "public".ft_fakt
 (
       id BIGSERIAL PRIMARY KEY,
-      dat date, 
-      id_art bigint,
-      id_partner bigint,
+      dat date          REFERENCES dt_vrijeme(dat), 
+      id_artikal bigint REFERENCES dim_art(id),
+      id_partner bigint REFERENCES dim_par(id),
       kolicina numeric(14,4),
       cijena numeric(14,4),
       vrijednost numeric(18,2)

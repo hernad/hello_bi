@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>dim_1</name>
-    <description/>
+    <name>dim_par</name>
+    <description>dim_par, dim_g</description>
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
@@ -113,7 +113,7 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>mjesta</from><to>Mjesto lookup</to><enabled>Y</enabled> </hop>  <hop> <from>get_partneri</from><to>String operations</to><enabled>Y</enabled> </hop>  <hop> <from>String operations</from><to>Mjesto lookup</to><enabled>Y</enabled> </hop>  <hop> <from>mjesto_oznaka</from><to>Mjesto lookup Oznaka</to><enabled>Y</enabled> </hop>  <hop> <from>Mjesto lookup</from><to>empty mjesto =&gt; n&#47;a</to><enabled>Y</enabled> </hop>  <hop> <from>empty mjesto =&gt; n&#47;a</from><to>Mjesto lookup Oznaka</to><enabled>Y</enabled> </hop>  <hop> <from>Mjesto lookup Oznaka</from><to>Switch &#47; Case</to><enabled>Y</enabled> </hop>  <hop> <from>Switch &#47; Case</from><to>grad dg</to><enabled>Y</enabled> </hop>  <hop> <from>Switch &#47; Case</from><to>nepoznati gradovi</to><enabled>Y</enabled> </hop>  <hop> <from>grad dg</from><to>Update</to><enabled>Y</enabled> </hop>  </order>
+  <hop> <from>mjesta</from><to>Mjesto lookup</to><enabled>Y</enabled> </hop>  <hop> <from>get_partneri</from><to>String operations</to><enabled>Y</enabled> </hop>  <hop> <from>String operations</from><to>Mjesto lookup</to><enabled>Y</enabled> </hop>  <hop> <from>mjesto_oznaka</from><to>Mjesto lookup Oznaka</to><enabled>Y</enabled> </hop>  <hop> <from>Mjesto lookup</from><to>empty mjesto =&gt; n&#47;a</to><enabled>Y</enabled> </hop>  <hop> <from>empty mjesto =&gt; n&#47;a</from><to>Mjesto lookup Oznaka</to><enabled>Y</enabled> </hop>  <hop> <from>Mjesto lookup Oznaka</from><to>dim_par</to><enabled>Y</enabled> </hop>  <hop> <from>Switch &#47; Case</from><to>grad dg</to><enabled>Y</enabled> </hop>  <hop> <from>Switch &#47; Case</from><to>nepoznati gradovi</to><enabled>Y</enabled> </hop>  <hop> <from>grad dg</from><to>update g</to><enabled>Y</enabled> </hop>  <hop> <from>dim_par</from><to>Switch &#47; Case</to><enabled>Y</enabled> </hop>  <hop> <from>update g</from><to>lookup grad</to><enabled>Y</enabled> </hop>  <hop> <from>lookup grad</from><to>update par</to><enabled>Y</enabled> </hop>  </order>
   <step>
     <name>Mjesto lookup</name>
     <type>StreamLookup</type>
@@ -240,14 +240,14 @@
 <target_step>nepoznati gradovi</target_step>
 </case></cases>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>514</xloc>
-      <yloc>148</yloc>
+      <xloc>117</xloc>
+      <yloc>274</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Update</name>
+    <name>update g</name>
     <type>Update</type>
     <description/>
     <distribute>Y</distribute>
@@ -258,7 +258,7 @@
            </partitioning>
     <connection>fit_dw</connection>
     <skip_lookup>N</skip_lookup>
-    <commit>100</commit>
+    <commit>1</commit>
     <use_batch>N</use_batch>
     <error_ignored>N</error_ignored>
     <ignore_flag_field/>
@@ -278,8 +278,8 @@
       </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>748</xloc>
-      <yloc>147</yloc>
+      <xloc>396</xloc>
+      <yloc>273</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -322,7 +322,7 @@
            <schema_name/>
            </partitioning>
     <connection>F18_bringout</connection>
-    <sql>SELECT id as idpartn, mjesto FROM fmk.partn</sql>
+    <sql>SELECT id as bk_idpartn, mjesto FROM fmk.partn</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -340,7 +340,7 @@
     <name>grad dg</name>
     <type>CombinationLookup</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <copies>1</copies>
          <partitioning>
            <method>none</method>
@@ -369,8 +369,8 @@
       <last_update_field/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>636</xloc>
-      <yloc>147</yloc>
+      <xloc>267</xloc>
+      <yloc>273</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -460,8 +460,8 @@
     <spreadsheet_type>JXL</spreadsheet_type>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>198</xloc>
-      <yloc>14</yloc>
+      <xloc>200</xloc>
+      <yloc>22</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -608,8 +608,126 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>637</xloc>
-      <yloc>253</yloc>
+      <xloc>112</xloc>
+      <yloc>374</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>dim_par</name>
+    <type>CombinationLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <schema>public</schema>
+      <table>dim_par</table>
+      <connection>fit_dw</connection>
+      <commit>100</commit>
+      <cache_size>9999</cache_size>
+      <replace>N</replace>
+      <crc>N</crc>
+      <crcfield>hashcode</crcfield>
+      <fields>
+        <key>
+          <name>bk_idpartn</name>
+          <lookup>bk_idpartner</lookup>
+        </key>
+        <return>
+          <name>id</name>
+          <creation_method>tablemax</creation_method>
+          <use_autoinc>N</use_autoinc>
+        </return>
+      </fields>
+      <sequence/>
+      <last_update_field/>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>531</xloc>
+      <yloc>145</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>lookup grad</name>
+    <type>DBLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>fit_dw</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema>public</schema>
+      <table>dim_g</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>mjesto_2</name>
+        <field>grad</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>id</name>
+        <rename>id_grad</rename>
+        <default/>
+        <type>Integer</type>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>531</xloc>
+      <yloc>273</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>update par</name>
+    <type>Update</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>fit_dw</connection>
+    <skip_lookup>N</skip_lookup>
+    <commit>1</commit>
+    <use_batch>N</use_batch>
+    <error_ignored>N</error_ignored>
+    <ignore_flag_field/>
+    <lookup>
+      <schema>public</schema>
+      <table>dim_par</table>
+      <key>
+        <name>bk_idpartn</name>
+        <field>bk_idpartner</field>
+        <condition>=</condition>
+        <name2/>
+        </key>
+      <value>
+        <name>id_grad</name>
+        <rename>id_grad</rename>
+        </value>
+      </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>628</xloc>
+      <yloc>274</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
