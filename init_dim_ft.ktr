@@ -113,7 +113,7 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>generate n&#47;a g</from><to>Delete g</to><enabled>Y</enabled> </hop>  <hop> <from>generate n&#47;a par</from><to>Delete par</to><enabled>Y</enabled> </hop>  <hop> <from>Delete par</from><to>skloni ne_postoji</to><enabled>Y</enabled> </hop>  <hop> <from>skloni ne_postoji</from><to>dim_par_n&#47;a</to><enabled>Y</enabled> </hop>  <hop> <from>Delete g</from><to>skloni ne_postoji &#47; 2</to><enabled>Y</enabled> </hop>  <hop> <from>skloni ne_postoji &#47; 2</from><to>dim_g n&#47;a</to><enabled>Y</enabled> </hop>  <hop> <from>generate n&#47;a g 2</from><to>Delete dt_vrijeme</to><enabled>Y</enabled> </hop>  <hop> <from>gen for ft_fakt</from><to>Delete ft_fakt</to><enabled>Y</enabled> </hop>  </order>
+  <hop> <from>generate n&#47;a g</from><to>Delete g</to><enabled>Y</enabled> </hop>  <hop> <from>generate n&#47;a par</from><to>Delete par</to><enabled>Y</enabled> </hop>  <hop> <from>Delete par</from><to>skloni ne_postoji</to><enabled>Y</enabled> </hop>  <hop> <from>skloni ne_postoji</from><to>dim_par_n&#47;a</to><enabled>Y</enabled> </hop>  <hop> <from>Delete g</from><to>skloni ne_postoji &#47; 2</to><enabled>Y</enabled> </hop>  <hop> <from>skloni ne_postoji &#47; 2</from><to>dim_g n&#47;a</to><enabled>Y</enabled> </hop>  <hop> <from>generate n&#47;a g 2</from><to>Delete dt_vrijeme</to><enabled>Y</enabled> </hop>  <hop> <from>gen for ft_fakt</from><to>Delete ft_fakt</to><enabled>Y</enabled> </hop>  <hop> <from>generate n&#47;a art</from><to>Delete dt_art</to><enabled>Y</enabled> </hop>  </order>
   <step>
     <name>Delete dt_vrijeme</name>
     <type>Delete</type>
@@ -138,8 +138,38 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>160</xloc>
-      <yloc>260</yloc>
+      <xloc>164</xloc>
+      <yloc>343</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Delete ft_fakt</name>
+    <type>Delete</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>fit_dw</connection>
+    <commit>100</commit>
+    <lookup>
+      <schema>public</schema>
+      <table>ft_fakt</table>
+      <key>
+        <name/>
+        <field>dat</field>
+        <condition>IS NOT NULL</condition>
+        <name2/>
+      </key>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>171</xloc>
+      <yloc>429</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -287,6 +317,38 @@
     </step>
 
   <step>
+    <name>gen for ft_fakt</name>
+    <type>RowGenerator</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <name>ne_postoji</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>XXXXXXXXXXXXXXXXXX</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+    </fields>
+    <limit>1</limit>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>40</xloc>
+      <yloc>427</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
     <name>generate n&#47;a g</name>
     <type>RowGenerator</type>
     <description/>
@@ -366,8 +428,8 @@
     <limit>1</limit>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>38</xloc>
-      <yloc>260</yloc>
+      <xloc>42</xloc>
+      <yloc>343</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -456,7 +518,7 @@
     </step>
 
   <step>
-    <name>Delete ft_fakt</name>
+    <name>Delete dt_art</name>
     <type>Delete</type>
     <description/>
     <distribute>Y</distribute>
@@ -468,25 +530,25 @@
     <connection>fit_dw</connection>
     <commit>100</commit>
     <lookup>
-      <schema>public</schema>
-      <table>ft_fakt</table>
+      <schema/>
+      <table>dim_art</table>
       <key>
-        <name/>
-        <field>dat</field>
-        <condition>IS NOT NULL</condition>
+        <name>ne_postoji</name>
+        <field>bk_idroba</field>
+        <condition>&lt;&gt;</condition>
         <name2/>
       </key>
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>167</xloc>
-      <yloc>346</yloc>
+      <xloc>162</xloc>
+      <yloc>245</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>gen for ft_fakt</name>
+    <name>generate n&#47;a art</name>
     <type>RowGenerator</type>
     <description/>
     <distribute>Y</distribute>
@@ -511,8 +573,8 @@
     <limit>1</limit>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>36</xloc>
-      <yloc>344</yloc>
+      <xloc>42</xloc>
+      <yloc>246</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
