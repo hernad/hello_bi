@@ -113,7 +113,7 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>get_fakt</from><to>lookup dim_art</to><enabled>Y</enabled> </hop>  <hop> <from>lookup dim_art</from><to>nepoznata_prodaja</to><enabled>Y</enabled> </hop>  <hop> <from>lookup dim_art</from><to>Select values</to><enabled>Y</enabled> </hop>  <hop> <from>Select values</from><to>ft_fakt</to><enabled>Y</enabled> </hop>  </order>
+  <hop> <from>get_fakt</from><to>lookup dim_art</to><enabled>Y</enabled> </hop>  <hop> <from>lookup dim_art</from><to>lookup d_t</to><enabled>Y</enabled> </hop>  <hop> <from>Select values</from><to>ft_fakt</to><enabled>Y</enabled> </hop>  <hop> <from>lookup d_t</from><to>Select values</to><enabled>Y</enabled> </hop>  <hop> <from>lookup dim_art</from><to>err art</to><enabled>Y</enabled> </hop>  <hop> <from>lookup d_t</from><to>err time</to><enabled>Y</enabled> </hop>  <hop> <from>err time</from><to>nepoznata_prodaja</to><enabled>Y</enabled> </hop>  <hop> <from>err art</from><to>nepoznata_prodaja</to><enabled>Y</enabled> </hop>  </order>
   <step>
     <name>get_fakt</name>
     <type>TableInput</type>
@@ -233,11 +233,131 @@ order by fakt_doks.idfirma, fakt_doks.idtipdok, fakt_doks.brdok</sql>
       <sheetname/>
     </template>
     <fields>
+      <field>
+        <name>ERROR</name>
+        <type>String</type>
+        <format/>
+        <title>ERROR</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>idtipdok</name>
+        <type>String</type>
+        <format/>
+        <title>idtipdok</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>brdok</name>
+        <type>String</type>
+        <format/>
+        <title>brdok</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>dat</name>
+        <type>Date</type>
+        <format/>
+        <title>dat</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>kolicina</name>
+        <type>Number</type>
+        <format>#,##0.00</format>
+        <title>kolicina</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>cijena</name>
+        <type>BigNumber</type>
+        <format>#,##0.00</format>
+        <title>cijena</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>rabat</name>
+        <type>Number</type>
+        <format>#,##0.00</format>
+        <title>rabat</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>vrijednost</name>
+        <type>BigNumber</type>
+        <format/>
+        <title>vrijednost</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>idroba</name>
+        <type>String</type>
+        <format/>
+        <title>idroba</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>idpartner</name>
+        <type>String</type>
+        <format/>
+        <title>idpartner</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>169</xloc>
-      <yloc>281</yloc>
+      <xloc>264</xloc>
+      <yloc>340</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -293,8 +413,8 @@ order by fakt_doks.idfirma, fakt_doks.idtipdok, fakt_doks.brdok</sql>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>512</xloc>
-      <yloc>154</yloc>
+      <xloc>729</xloc>
+      <yloc>151</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -317,8 +437,105 @@ order by fakt_doks.idfirma, fakt_doks.idtipdok, fakt_doks.brdok</sql>
       </remove>      <remove>        <name>rabat</name>
       </remove>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>353</xloc>
+      <xloc>594</xloc>
       <yloc>154</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>lookup d_t</name>
+    <type>DBLookup</type>
+    <description/>
+    <distribute>N</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>fit_dw</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema>public</schema>
+      <table>dt_vrijeme</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>dat</name>
+        <field>dat</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>335</xloc>
+      <yloc>152</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>err art</name>
+    <type>Constant</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <name>ERROR</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>ERR_ART</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>184</xloc>
+      <yloc>250</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>err time</name>
+    <type>Constant</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <name>ERROR</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>ERR TIME</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>330</xloc>
+      <yloc>251</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -326,7 +543,19 @@ order by fakt_doks.idfirma, fakt_doks.idtipdok, fakt_doks.brdok</sql>
   <step_error_handling>
       <error>
         <source_step>lookup dim_art</source_step>
-        <target_step>nepoznata_prodaja</target_step>
+        <target_step>err art</target_step>
+        <is_enabled>Y</is_enabled>
+        <nr_valuename/>
+        <descriptions_valuename/>
+        <fields_valuename/>
+        <codes_valuename/>
+        <max_errors/>
+        <max_pct_errors/>
+        <min_pct_rows/>
+      </error>
+      <error>
+        <source_step>lookup d_t</source_step>
+        <target_step>err time</target_step>
         <is_enabled>Y</is_enabled>
         <nr_valuename/>
         <descriptions_valuename/>

@@ -388,7 +388,7 @@ English names are set by default.</note>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>193</xloc>
-      <yloc>255</yloc>
+      <yloc>242</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -504,8 +504,8 @@ English names are set by default.</note>
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>818</xloc>
-      <yloc>128</yloc>
+      <xloc>806</xloc>
+      <yloc>130</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -656,8 +656,8 @@ English names are set by default.</note>
         <norm>week_short_desc</norm>
         </field>      </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>551</xloc>
-      <yloc>255</yloc>
+      <xloc>541</xloc>
+      <yloc>242</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1088,8 +1088,8 @@ English names are set by default.</note>
         <trimtype>none</trimtype>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>309</xloc>
-      <yloc>255</yloc>
+      <xloc>307</xloc>
+      <yloc>244</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1192,8 +1192,8 @@ English names are set by default.</note>
         <trimtype>none</trimtype>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>427</xloc>
-      <yloc>255</yloc>
+      <xloc>424</xloc>
+      <yloc>243</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1265,8 +1265,8 @@ English names are set by default.</note>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>693</xloc>
-      <yloc>349</yloc>
+      <xloc>806</xloc>
+      <yloc>312</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
