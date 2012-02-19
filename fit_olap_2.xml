@@ -3,48 +3,50 @@
     <Table name="ft_fakt" schema="public">
     </Table>
     <Dimension type="TimeDimension" visible="true" foreignKey="dat" highCardinality="false" name="Vrijeme">
-      <Hierarchy name="vrijeme" visible="true" hasAll="true">
-        <Table name="dt_vrijeme" schema="public" alias="">
+      <Hierarchy name="vrijeme" visible="true" hasAll="true" primaryKey="dat">
+        <Table name="dt_vrijeme" schema="public">
         </Table>
-        <Level name="godina" visible="true" column="god" type="Time" uniqueMembers="false" levelType="TimeYears">
+        <Level name="godina" visible="true" column="god" type="Integer" uniqueMembers="true" levelType="TimeYears" hideMemberIf="Never">
         </Level>
-        <Level name="mjesec" visible="true" column="mjes" type="Numeric" uniqueMembers="false" levelType="TimeMonths">
+        <Level name="mjesec" visible="true" column="mjes" nameColumn="mjes_opis_skr" type="Integer" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never">
         </Level>
-        <Level name="dan" visible="true" column="dan" type="Numeric" uniqueMembers="false" levelType="TimeDays">
-        </Level>
-        <Level name="mjesec opis" visible="true" column="mjes_opis" type="String" uniqueMembers="false" levelType="TimeMonths">
-        </Level>
-        <Level name="dan u hefti" visible="true" column="dan_u_hefti" type="Numeric" uniqueMembers="false" levelType="TimeWeeks">
-        </Level>
-        <Level name="hefta opis" visible="true" column="hefta_opis" type="String" uniqueMembers="false" levelType="TimeWeeks">
+        <Level name="dan" visible="true" column="dan" type="Integer" uniqueMembers="false" levelType="TimeDays" hideMemberIf="Never">
         </Level>
       </Hierarchy>
     </Dimension>
-    <Dimension type="StandardDimension" visible="true" foreignKey="id_artikal" name="Artikli">
+    <Dimension type="StandardDimension" visible="true" foreignKey="id_artikal" highCardinality="false" name="Artikli">
       <Hierarchy name="artikli" visible="true" hasAll="true" primaryKey="id" primaryKeyTable="dim_art">
-        <Join leftKey="id_artikal" rightKey="id">
-          <Table name="dim_art" schema="public" alias="">
+        <Join leftKey="id_grupa" rightKey="id">
+          <Table name="dim_art" schema="public">
           </Table>
           <Table name="dim_art_gru" schema="public">
           </Table>
         </Join>
-        <Level name="kategorija" visible="true" table="dim_art" column="kategorija" uniqueMembers="false">
+        <Level name="kategorija" visible="true" table="dim_art" column="kategorija" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
         </Level>
-        <Level name="grupa" visible="true" table="dim_art_gru" column="grupa" uniqueMembers="false">
+        <Level name="grupa" visible="true" table="dim_art_gru" column="grupa" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
         </Level>
       </Hierarchy>
     </Dimension>
-    <Dimension type="StandardDimension" visible="true" foreignKey="id_partner" name="Klijenti">
+    <Dimension type="StandardDimension" visible="true" foreignKey="id_partner" highCardinality="false" name="Klijenti">
       <Hierarchy name="klijenti" visible="true" hasAll="true" primaryKey="id" primaryKeyTable="dim_par">
         <Join leftKey="id_grad" rightKey="id">
-          <Table name="dim_par" schema="public" alias="">
+          <Table name="dim_par" schema="public">
           </Table>
-          <Table name="dim_g" schema="public" alias="">
+          <Table name="dim_g" schema="public">
           </Table>
         </Join>
-        <Level name="grad" visible="true" table="dim_g" column="grad" uniqueMembers="false">
+        <Level name="region" visible="true" table="dim_g" column="region" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
         </Level>
-        <Level name="region" visible="true" table="dim_g" column="region" uniqueMembers="false">
+        <Level name="mjesto" visible="true" table="dim_g" column="grad" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="TimeDimension" visible="true" foreignKey="dat" name="Dan u hefti">
+      <Hierarchy name="svi dani" visible="true" hasAll="true" primaryKey="dat">
+        <Table name="dt_vrijeme" schema="public" alias="">
+        </Table>
+        <Level name="dan u hefti" visible="true" column="dan_u_hefti" nameColumn="hefta_opis_skr" type="Integer" uniqueMembers="false" levelType="TimeUndefined">
         </Level>
       </Hierarchy>
     </Dimension>
