@@ -22,7 +22,7 @@
           <Table name="dim_art_gru" schema="public">
           </Table>
         </Join>
-        <Level name="kategorija" visible="true" table="dim_art" column="kategorija" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        <Level name="kategorija" visible="true" table="dim_art" column="kategorija" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
         </Level>
         <Level name="grupa" visible="true" table="dim_art_gru" column="grupa" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
         </Level>

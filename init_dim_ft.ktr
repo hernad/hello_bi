@@ -115,6 +115,36 @@
   <order>
   <hop> <from>generate n&#47;a g</from><to>Delete g</to><enabled>Y</enabled> </hop>  <hop> <from>generate n&#47;a par</from><to>Delete par</to><enabled>Y</enabled> </hop>  <hop> <from>Delete par</from><to>skloni ne_postoji</to><enabled>Y</enabled> </hop>  <hop> <from>skloni ne_postoji</from><to>dim_par_n&#47;a</to><enabled>Y</enabled> </hop>  <hop> <from>Delete g</from><to>skloni ne_postoji &#47; 2</to><enabled>Y</enabled> </hop>  <hop> <from>skloni ne_postoji &#47; 2</from><to>dim_g n&#47;a</to><enabled>Y</enabled> </hop>  <hop> <from>generate n&#47;a g 2</from><to>Delete dt_vrijeme</to><enabled>Y</enabled> </hop>  <hop> <from>gen for ft_fakt</from><to>Delete ft_fakt</to><enabled>Y</enabled> </hop>  <hop> <from>generate n&#47;a art</from><to>Delete dt_art</to><enabled>Y</enabled> </hop>  </order>
   <step>
+    <name>Delete dt_art</name>
+    <type>Delete</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>fit_dw</connection>
+    <commit>100</commit>
+    <lookup>
+      <schema/>
+      <table>dim_art</table>
+      <key>
+        <name>ne_postoji</name>
+        <field>bk_idroba</field>
+        <condition>&lt;&gt;</condition>
+        <name2/>
+      </key>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>162</xloc>
+      <yloc>245</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
     <name>Delete dt_vrijeme</name>
     <type>Delete</type>
     <description/>
@@ -160,9 +190,9 @@
       <schema>public</schema>
       <table>ft_fakt</table>
       <key>
-        <name/>
-        <field>dat</field>
-        <condition>IS NOT NULL</condition>
+        <name>ne_postoji_id</name>
+        <field>id</field>
+        <condition>&gt;</condition>
         <name2/>
       </key>
     </lookup>
@@ -328,6 +358,38 @@
            </partitioning>
     <fields>
       <field>
+        <name>ne_postoji_id</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>-99999</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+    </fields>
+    <limit>1</limit>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>40</xloc>
+      <yloc>427</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>generate n&#47;a art</name>
+    <type>RowGenerator</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
         <name>ne_postoji</name>
         <type>String</type>
         <format/>
@@ -342,8 +404,8 @@
     <limit>1</limit>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>40</xloc>
-      <yloc>427</yloc>
+      <xloc>42</xloc>
+      <yloc>246</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -513,68 +575,6 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>264</xloc>
       <yloc>154</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Delete dt_art</name>
-    <type>Delete</type>
-    <description/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>fit_dw</connection>
-    <commit>100</commit>
-    <lookup>
-      <schema/>
-      <table>dim_art</table>
-      <key>
-        <name>ne_postoji</name>
-        <field>bk_idroba</field>
-        <condition>&lt;&gt;</condition>
-        <name2/>
-      </key>
-    </lookup>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>162</xloc>
-      <yloc>245</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>generate n&#47;a art</name>
-    <type>RowGenerator</type>
-    <description/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>
-      <field>
-        <name>ne_postoji</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>XXXXXXXXXXXXXXXXXX</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-    </fields>
-    <limit>1</limit>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>42</xloc>
-      <yloc>246</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
