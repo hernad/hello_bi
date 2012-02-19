@@ -8,10 +8,10 @@ ROOT_DIR=/home/www
 
 
 SCHEMA=fit_olap_2.xml
-rsync -v schema_hello_bi_star.xml $HOST:$ROOT_DIR/saiku-server/tomcat/webapps/saiku/WEB-INF/classes/fit_olap/$SCHEMA
+rsync -v $SCHEMA $HOST:$ROOT_DIR/saiku-server/tomcat/webapps/saiku/WEB-INF/classes/fit_olap/$SCHEMA
 
 
 DS=fit_olap_2
-rsync -v saiku-datasource_$DS $HOST:$ROOT_DIR/saiku-server/tomcat/webapps/saiku/WEB-INF/classes/saiku-datasources/$DS
+#rsync -v saiku-datasource_$DS $HOST:$ROOT_DIR/saiku-server/tomcat/webapps/saiku/WEB-INF/classes/saiku-datasources/$DS
 
 
