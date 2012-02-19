@@ -1,0 +1,56 @@
+<Schema name="FIT OLAP 2">
+  <Cube name="FIT OLAP" caption="FIT OLAP 2" visible="true" cache="true" enabled="true">
+    <Table name="ft_fakt" schema="public">
+    </Table>
+    <Dimension type="TimeDimension" visible="true" foreignKey="dat" highCardinality="false" name="Vrijeme">
+      <Hierarchy name="vrijeme" visible="true" hasAll="true">
+        <Table name="dt_vrijeme" schema="public" alias="">
+        </Table>
+        <Level name="godina" visible="true" column="god" uniqueMembers="false">
+        </Level>
+        <Level name="mjesec" visible="true" column="mjes" uniqueMembers="false">
+        </Level>
+        <Level name="dan" visible="true" column="dan" uniqueMembers="false">
+        </Level>
+        <Level name="mjesec opis" visible="true" column="mjes_opis" uniqueMembers="false">
+        </Level>
+        <Level name="dan u hefti" visible="true" column="dan_u_hefti" uniqueMembers="false">
+        </Level>
+        <Level name="hefta opis" visible="true" column="hefta_opis" uniqueMembers="false">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="id_artikal" name="Artikli">
+      <Hierarchy name="artikli" visible="true" hasAll="true" primaryKey="id" primaryKeyTable="dim_art">
+        <Join leftKey="id_artikal" rightKey="id">
+          <Table name="dim_art" schema="public" alias="">
+          </Table>
+          <Table name="dim_art_gru" schema="public">
+          </Table>
+        </Join>
+        <Level name="kategorija" visible="true" table="dim_art" column="kategorija" uniqueMembers="false">
+        </Level>
+        <Level name="grupa" visible="true" table="dim_art_gru" column="grupa" uniqueMembers="false">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="id_partner" name="Klijenti">
+      <Hierarchy name="klijenti" visible="true" hasAll="true" primaryKey="id" primaryKeyTable="dim_par">
+        <Join leftKey="id_grad" rightKey="id">
+          <Table name="dim_par" schema="public" alias="">
+          </Table>
+          <Table name="dim_g" schema="public" alias="">
+          </Table>
+        </Join>
+        <Level name="grad" visible="true" table="dim_g" column="grad" uniqueMembers="false">
+        </Level>
+        <Level name="region" visible="true" table="dim_g" column="region" uniqueMembers="false">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Measure name="Koli&#269;ina" column="kolicina" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="Vrijednost" column="vrijednost" aggregator="sum" description="Vrijednost prodaje" visible="true">
+    </Measure>
+  </Cube>
+</Schema>

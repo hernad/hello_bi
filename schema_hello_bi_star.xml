@@ -12,7 +12,7 @@
     </Dimension>
     <Dimension type="StandardDimension" visible="true" foreignKey="kateg_id" highCardinality="false" name="Kategorija Artikala">
       <Hierarchy name="Sve kategorije artikala" visible="true" hasAll="true" primaryKey="kateg_id">
-        <Table name="dim_art_kategorije" schema="public" alias="">
+        <Table name="dim_art_kategorije" schema="public">
         </Table>
         <Level name="Kategorija" visible="true" table="dim_art_kategorije" column="kateg" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
         </Level>
@@ -22,29 +22,29 @@
       <Hierarchy visible="true" hasAll="true" allMemberName="Svi Periodi" primaryKey="time_id">
         <Table name="dim_time" schema="public">
         </Table>
-        <Level name="Godina" visible="true" table="dim_time" column="year" type="Numeric" uniqueMembers="true" levelType="TimeYears">
+        <Level name="Godina" visible="true" table="dim_time" column="year" type="Numeric" uniqueMembers="true" levelType="TimeYears" hideMemberIf="Never">
         </Level>
-        <Level name="Mjesec" visible="true" table="dim_time" column="month" type="Numeric" uniqueMembers="false" levelType="TimeMonths">
+        <Level name="Mjesec" visible="true" table="dim_time" column="month" type="Numeric" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never">
         </Level>
-        <Level name="Dan" visible="true" table="dim_time" column="day" type="Numeric" uniqueMembers="false" levelType="TimeDays">
+        <Level name="Dan" visible="true" table="dim_time" column="day" type="Numeric" uniqueMembers="false" levelType="TimeDays" hideMemberIf="Never">
         </Level>
-        <Level name="Dan u hefti" visible="true" table="dim_time" column="day_of_week" type="Numeric" uniqueMembers="true" levelType="TimeDays">
+        <Level name="Dan u hefti" visible="true" table="dim_time" column="day_of_week" type="Numeric" uniqueMembers="true" levelType="TimeDays" hideMemberIf="Never">
         </Level>
       </Hierarchy>
     </Dimension>
-    <Dimension type="StandardDimension" visible="true" foreignKey="partner_id" name="Partner">
+    <Dimension type="StandardDimension" visible="true" foreignKey="partner_id" highCardinality="false" name="Partner">
       <Hierarchy name="Svi partneri" visible="true" hasAll="true" primaryKey="partner_id">
-        <Table name="dim_partneri" schema="public" alias="">
+        <Table name="dim_partneri" schema="public">
         </Table>
-        <Level name="Partner" visible="true" table="dim_partneri" column="partner" uniqueMembers="false">
+        <Level name="Partner" visible="true" table="dim_partneri" column="partner" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
         </Level>
       </Hierarchy>
     </Dimension>
-    <Dimension type="StandardDimension" visible="true" foreignKey="artikal_id" name="Artikal">
+    <Dimension type="StandardDimension" visible="true" foreignKey="artikal_id" highCardinality="false" name="Artikal">
       <Hierarchy name="Svi artikli" visible="true" hasAll="true" primaryKey="artikal_id">
-        <Table name="dim_artikli" schema="public" alias="">
+        <Table name="dim_artikli" schema="public">
         </Table>
-        <Level name="Artikal" visible="true" column="artikal" uniqueMembers="false">
+        <Level name="Artikal" visible="true" column="artikal" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
         </Level>
       </Hierarchy>
     </Dimension>
