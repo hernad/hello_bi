@@ -705,8 +705,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>150</xloc>
-      <yloc>89</yloc>
+      <xloc>673</xloc>
+      <yloc>86</yloc>
       </entry>
     <entry>
       <name>Set godina 1996</name>
@@ -725,8 +725,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>58</xloc>
-      <yloc>88</yloc>
+      <xloc>548</xloc>
+      <yloc>80</yloc>
       </entry>
     <entry>
       <name>run 1997</name>
@@ -755,8 +755,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>328</xloc>
-      <yloc>90</yloc>
+      <xloc>408</xloc>
+      <yloc>84</yloc>
       </entry>
     <entry>
       <name>Set godina 1997</name>
@@ -775,7 +775,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>237</xloc>
+      <xloc>330</xloc>
       <yloc>86</yloc>
       </entry>
     <entry>
@@ -1038,15 +1038,6 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>dt</from>
-      <to>Set godina 1996</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
       <from>Set godina 1996</from>
       <to>run 1996</to>
       <from_nr>0</from_nr>
@@ -1056,26 +1047,8 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>run 1996</from>
-      <to>Set godina 1997</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
       <from>Set godina 1997</from>
       <to>run 1997</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>run 1997</from>
-      <to>Set godina 1998</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -1109,7 +1082,57 @@
       <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
     </hop>
+    <hop>
+      <from>run 1997</from>
+      <to>Set godina 1996</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>run 1996</from>
+      <to>Set godina 1998</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>dt</from>
+      <to>Set godina 1997</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
   </hops>
   <notepads>
+    <notepad>
+      <note>1996 šifrarnik artikala ne postoji, 
+pa ćemo prvo pokrenuti 1997
+</note>
+      <xloc>131</xloc>
+      <yloc>77</yloc>
+      <width>162</width>
+      <heigth>43</heigth>
+      <fontname/>
+      <fontsize>-1</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>165</backgroundcolorgreen>
+      <backgroundcolorblue>0</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
   </notepads>
 </job>
