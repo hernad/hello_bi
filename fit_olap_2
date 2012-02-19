@@ -3,4 +3,4 @@ name=FIT OLAP 2
 driver=mondrian.olap4j.MondrianOlap4jDriver
 location=jdbc:mondrian:Jdbc=jdbc:postgresql://localhost:5432/fit_olap;JdbcDrivers=org.postgresql.Driver;Catalog=res:fit_olap/fit_olap_2.xml;
 username=admin
-password=xxxx
+password=xxx
