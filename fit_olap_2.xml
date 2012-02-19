@@ -6,17 +6,17 @@
       <Hierarchy name="vrijeme" visible="true" hasAll="true">
         <Table name="dt_vrijeme" schema="public" alias="">
         </Table>
-        <Level name="godina" visible="true" column="god" uniqueMembers="false">
+        <Level name="godina" visible="true" column="god" type="Time" uniqueMembers="false" levelType="TimeYears">
         </Level>
-        <Level name="mjesec" visible="true" column="mjes" uniqueMembers="false">
+        <Level name="mjesec" visible="true" column="mjes" type="Numeric" uniqueMembers="false" levelType="TimeMonths">
         </Level>
-        <Level name="dan" visible="true" column="dan" uniqueMembers="false">
+        <Level name="dan" visible="true" column="dan" type="Numeric" uniqueMembers="false" levelType="TimeDays">
         </Level>
-        <Level name="mjesec opis" visible="true" column="mjes_opis" uniqueMembers="false">
+        <Level name="mjesec opis" visible="true" column="mjes_opis" type="String" uniqueMembers="false" levelType="TimeMonths">
         </Level>
-        <Level name="dan u hefti" visible="true" column="dan_u_hefti" uniqueMembers="false">
+        <Level name="dan u hefti" visible="true" column="dan_u_hefti" type="Numeric" uniqueMembers="false" levelType="TimeWeeks">
         </Level>
-        <Level name="hefta opis" visible="true" column="hefta_opis" uniqueMembers="false">
+        <Level name="hefta opis" visible="true" column="hefta_opis" type="String" uniqueMembers="false" levelType="TimeWeeks">
         </Level>
       </Hierarchy>
     </Dimension>
