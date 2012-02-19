@@ -51,8 +51,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>98</xloc>
-      <yloc>9</yloc>
+      <xloc>100</xloc>
+      <yloc>7</yloc>
       </entry>
     <entry>
       <name>init dimension &amp; fact tables</name>
@@ -83,8 +83,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>221</xloc>
-      <yloc>10</yloc>
+      <xloc>211</xloc>
+      <yloc>5</yloc>
       </entry>
     <entry>
       <name>run 2006</name>
@@ -113,8 +113,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>168</xloc>
-      <yloc>342</yloc>
+      <xloc>553</xloc>
+      <yloc>240</yloc>
       </entry>
     <entry>
       <name>dt</name>
@@ -145,7 +145,7 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>335</xloc>
+      <xloc>333</xloc>
       <yloc>7</yloc>
       </entry>
     <entry>
@@ -165,8 +165,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>59</xloc>
-      <yloc>341</yloc>
+      <xloc>459</xloc>
+      <yloc>242</yloc>
       </entry>
     <entry>
       <name>run 2007</name>
@@ -195,8 +195,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>377</xloc>
-      <yloc>337</yloc>
+      <xloc>140</xloc>
+      <yloc>329</yloc>
       </entry>
     <entry>
       <name>Set godina 2007</name>
@@ -215,8 +215,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>271</xloc>
-      <yloc>342</yloc>
+      <xloc>43</xloc>
+      <yloc>333</yloc>
       </entry>
     <entry>
       <name>run 2008</name>
@@ -245,8 +245,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>178</xloc>
-      <yloc>422</yloc>
+      <xloc>335</xloc>
+      <yloc>322</yloc>
       </entry>
     <entry>
       <name>Set godina 2008</name>
@@ -265,8 +265,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>51</xloc>
-      <yloc>423</yloc>
+      <xloc>232</xloc>
+      <yloc>327</yloc>
       </entry>
     <entry>
       <name>run 2009</name>
@@ -295,8 +295,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>372</xloc>
-      <yloc>419</yloc>
+      <xloc>554</xloc>
+      <yloc>324</yloc>
       </entry>
     <entry>
       <name>Set godina 2009</name>
@@ -315,8 +315,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>272</xloc>
-      <yloc>418</yloc>
+      <xloc>442</xloc>
+      <yloc>325</yloc>
       </entry>
     <entry>
       <name>Success</name>
@@ -325,8 +325,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>469</xloc>
-      <yloc>505</yloc>
+      <xloc>483</xloc>
+      <yloc>412</yloc>
       </entry>
     <entry>
       <name>run 2010</name>
@@ -355,8 +355,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>175</xloc>
-      <yloc>507</yloc>
+      <xloc>170</xloc>
+      <yloc>418</yloc>
       </entry>
     <entry>
       <name>Set godina 2010</name>
@@ -375,8 +375,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>50</xloc>
-      <yloc>507</yloc>
+      <xloc>49</xloc>
+      <yloc>421</yloc>
       </entry>
     <entry>
       <name>run 1999</name>
@@ -405,8 +405,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>592</xloc>
-      <yloc>84</yloc>
+      <xloc>325</xloc>
+      <yloc>149</yloc>
       </entry>
     <entry>
       <name>Set godina 2004</name>
@@ -425,8 +425,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>59</xloc>
-      <yloc>256</yloc>
+      <xloc>43</xloc>
+      <yloc>244</yloc>
       </entry>
     <entry>
       <name>run 2004</name>
@@ -455,8 +455,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>155</xloc>
-      <yloc>263</yloc>
+      <xloc>138</xloc>
+      <yloc>245</yloc>
       </entry>
     <entry>
       <name>Set godina 2005</name>
@@ -475,8 +475,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>275</xloc>
-      <yloc>257</yloc>
+      <xloc>245</xloc>
+      <yloc>241</yloc>
       </entry>
     <entry>
       <name>run 2005</name>
@@ -505,8 +505,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>385</xloc>
-      <yloc>255</yloc>
+      <xloc>359</xloc>
+      <yloc>240</yloc>
       </entry>
     <entry>
       <name>Set godina 1999</name>
@@ -525,8 +525,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>499</xloc>
-      <yloc>84</yloc>
+      <xloc>237</xloc>
+      <yloc>150</yloc>
       </entry>
     <entry>
       <name>run 1998</name>
@@ -555,8 +555,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>383</xloc>
-      <yloc>87</yloc>
+      <xloc>135</xloc>
+      <yloc>148</yloc>
       </entry>
     <entry>
       <name>Set godina 1998</name>
@@ -575,8 +575,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>277</xloc>
-      <yloc>87</yloc>
+      <xloc>49</xloc>
+      <yloc>147</yloc>
       </entry>
     <entry>
       <name>run 2001</name>
@@ -605,8 +605,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>377</xloc>
-      <yloc>162</yloc>
+      <xloc>672</xloc>
+      <yloc>156</yloc>
       </entry>
     <entry>
       <name>Set godina 2001</name>
@@ -625,8 +625,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>268</xloc>
-      <yloc>165</yloc>
+      <xloc>580</xloc>
+      <yloc>155</yloc>
       </entry>
     <entry>
       <name>run 2000</name>
@@ -655,8 +655,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>147</xloc>
-      <yloc>168</yloc>
+      <xloc>500</xloc>
+      <yloc>157</yloc>
       </entry>
     <entry>
       <name>Set godina 2000</name>
@@ -675,61 +675,11 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>52</xloc>
-      <yloc>172</yloc>
-      </entry>
-    <entry>
-      <name>run 2003</name>
-      <description/>
-      <type>JOB</type>
-      <specification_method>filename</specification_method>
-      <job_object_id/>
-      <filename>${Internal.Job.Filename.Directory}&#47;run_godina.kjb</filename>
-      <jobname/>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Nothing</loglevel>
-      <slave_server_name/>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <pass_export>N</pass_export>
-      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>      <set_append_logfile>N</set_append_logfile>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>740</xloc>
+      <xloc>409</xloc>
       <yloc>153</yloc>
       </entry>
     <entry>
-      <name>Set godina 2003</name>
-      <description/>
-      <type>SET_VARIABLES</type>
-      <replacevars>Y</replacevars>
-      <filename/>
-      <file_variable_type>JVM</file_variable_type>
-      <fields>
-        <field>
-          <variable_name>GODINA</variable_name>
-          <variable_value>2003</variable_value>
-          <variable_type>CURRENT_JOB</variable_type>
-        </field>
-      </fields>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>649</xloc>
-      <yloc>157</yloc>
-      </entry>
-    <entry>
-      <name>run 2002</name>
+      <name>run 1996</name>
       <description/>
       <type>JOB</type>
       <specification_method>filename</specification_method>
@@ -755,11 +705,11 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>565</xloc>
-      <yloc>158</yloc>
+      <xloc>150</xloc>
+      <yloc>89</yloc>
       </entry>
     <entry>
-      <name>Set godina 2002</name>
+      <name>Set godina 1996</name>
       <description/>
       <type>SET_VARIABLES</type>
       <replacevars>Y</replacevars>
@@ -768,15 +718,15 @@
       <fields>
         <field>
           <variable_name>GODINA</variable_name>
-          <variable_value>2002</variable_value>
+          <variable_value>1996</variable_value>
           <variable_type>CURRENT_JOB</variable_type>
         </field>
       </fields>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>477</xloc>
-      <yloc>160</yloc>
+      <xloc>58</xloc>
+      <yloc>88</yloc>
       </entry>
     <entry>
       <name>run 1997</name>
@@ -805,8 +755,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>152</xloc>
-      <yloc>91</yloc>
+      <xloc>328</xloc>
+      <yloc>90</yloc>
       </entry>
     <entry>
       <name>Set godina 1997</name>
@@ -825,8 +775,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>56</xloc>
-      <yloc>93</yloc>
+      <xloc>237</xloc>
+      <yloc>86</yloc>
       </entry>
     <entry>
       <name>run 2011</name>
@@ -855,8 +805,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>377</xloc>
-      <yloc>504</yloc>
+      <xloc>371</xloc>
+      <yloc>411</yloc>
       </entry>
     <entry>
       <name>Set godina 2011</name>
@@ -875,8 +825,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>284</xloc>
-      <yloc>500</yloc>
+      <xloc>268</xloc>
+      <yloc>413</yloc>
       </entry>
   </entries>
   <hops>
@@ -1080,42 +1030,6 @@
     </hop>
     <hop>
       <from>run 2001</from>
-      <to>Set godina 2002</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Set godina 2002</from>
-      <to>run 2002</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>run 2002</from>
-      <to>Set godina 2003</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Set godina 2003</from>
-      <to>run 2003</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>run 2003</from>
       <to>Set godina 2004</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
@@ -1125,6 +1039,24 @@
     </hop>
     <hop>
       <from>dt</from>
+      <to>Set godina 1996</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Set godina 1996</from>
+      <to>run 1996</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>run 1996</from>
       <to>Set godina 1997</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
