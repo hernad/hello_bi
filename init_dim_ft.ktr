@@ -113,9 +113,9 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>generate n&#47;a g</from><to>Delete g</to><enabled>Y</enabled> </hop>  <hop> <from>generate n&#47;a par</from><to>Delete par</to><enabled>Y</enabled> </hop>  <hop> <from>Delete par</from><to>skloni ne_postoji</to><enabled>Y</enabled> </hop>  <hop> <from>skloni ne_postoji</from><to>dim_par_n&#47;a</to><enabled>Y</enabled> </hop>  <hop> <from>Delete g</from><to>skloni ne_postoji &#47; 2</to><enabled>Y</enabled> </hop>  <hop> <from>skloni ne_postoji &#47; 2</from><to>dim_g n&#47;a</to><enabled>Y</enabled> </hop>  <hop> <from>generate n&#47;a g 2</from><to>Delete dt_vrijeme</to><enabled>Y</enabled> </hop>  <hop> <from>gen for ft_fakt</from><to>Delete ft_fakt</to><enabled>Y</enabled> </hop>  <hop> <from>generate n&#47;a art</from><to>Delete dt_art</to><enabled>Y</enabled> </hop>  </order>
+  <hop> <from>generate n&#47;a g</from><to>Delete all dim_g</to><enabled>Y</enabled> </hop>  <hop> <from>generate n&#47;a par</from><to>Delete all dim_par</to><enabled>Y</enabled> </hop>  <hop> <from>Delete all dim_par</from><to>skloni ne_postoji</to><enabled>Y</enabled> </hop>  <hop> <from>skloni ne_postoji</from><to>dim_par_n&#47;a</to><enabled>Y</enabled> </hop>  <hop> <from>Delete all dim_g</from><to>skloni ne_postoji &#47; 2</to><enabled>Y</enabled> </hop>  <hop> <from>skloni ne_postoji &#47; 2</from><to>dim_g n&#47;a</to><enabled>Y</enabled> </hop>  <hop> <from>generate n&#47;a g 2</from><to>Delete all dt_vrijeme</to><enabled>Y</enabled> </hop>  <hop> <from>gen for ft_fakt</from><to>Delete all ft_fakt</to><enabled>Y</enabled> </hop>  <hop> <from>generate n&#47;a art</from><to>Delete all all dt_art</to><enabled>Y</enabled> </hop>  </order>
   <step>
-    <name>Delete dt_art</name>
+    <name>Delete all all dt_art</name>
     <type>Delete</type>
     <description/>
     <distribute>Y</distribute>
@@ -139,13 +139,13 @@
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>162</xloc>
-      <yloc>245</yloc>
+      <yloc>214</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Delete dt_vrijeme</name>
+    <name>Delete all dt_vrijeme</name>
     <type>Delete</type>
     <description/>
     <distribute>Y</distribute>
@@ -168,14 +168,14 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>164</xloc>
-      <yloc>343</yloc>
+      <xloc>396</xloc>
+      <yloc>212</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Delete ft_fakt</name>
+    <name>Delete all ft_fakt</name>
     <type>Delete</type>
     <description/>
     <distribute>Y</distribute>
@@ -198,14 +198,14 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>171</xloc>
-      <yloc>429</yloc>
+      <xloc>158</xloc>
+      <yloc>292</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Delete g</name>
+    <name>Delete all dim_g</name>
     <type>Delete</type>
     <description/>
     <distribute>Y</distribute>
@@ -228,14 +228,14 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>156</xloc>
-      <yloc>158</yloc>
+      <xloc>160</xloc>
+      <yloc>133</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Delete par</name>
+    <name>Delete all dim_par</name>
     <type>Delete</type>
     <description/>
     <distribute>Y</distribute>
@@ -258,8 +258,8 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>155</xloc>
-      <yloc>64</yloc>
+      <xloc>160</xloc>
+      <yloc>42</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -299,8 +299,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>378</xloc>
-      <yloc>157</yloc>
+      <xloc>382</xloc>
+      <yloc>134</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -340,8 +340,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>372</xloc>
-      <yloc>65</yloc>
+      <xloc>377</xloc>
+      <yloc>43</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -372,8 +372,8 @@
     <limit>1</limit>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>40</xloc>
-      <yloc>427</yloc>
+      <xloc>43</xloc>
+      <yloc>295</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -404,8 +404,8 @@
     <limit>1</limit>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>42</xloc>
-      <yloc>246</yloc>
+      <xloc>37</xloc>
+      <yloc>215</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -458,8 +458,8 @@
     <limit>1</limit>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>34</xloc>
-      <yloc>158</yloc>
+      <xloc>36</xloc>
+      <yloc>134</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -490,8 +490,8 @@
     <limit>1</limit>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>42</xloc>
-      <yloc>343</yloc>
+      <xloc>269</xloc>
+      <yloc>213</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -533,8 +533,8 @@
     <limit>1</limit>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>33</xloc>
-      <yloc>67</yloc>
+      <xloc>38</xloc>
+      <yloc>45</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -553,8 +553,8 @@
       <remove>        <name>ne_postoji</name>
       </remove>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>261</xloc>
-      <yloc>66</yloc>
+      <xloc>266</xloc>
+      <yloc>44</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -573,8 +573,8 @@
       <remove>        <name>ne_postoji</name>
       </remove>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>264</xloc>
-      <yloc>154</yloc>
+      <xloc>271</xloc>
+      <yloc>136</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

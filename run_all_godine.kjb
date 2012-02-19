@@ -51,7 +51,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>100</xloc>
+      <xloc>92</xloc>
       <yloc>7</yloc>
       </entry>
     <entry>
@@ -83,8 +83,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>211</xloc>
-      <yloc>5</yloc>
+      <xloc>207</xloc>
+      <yloc>9</yloc>
       </entry>
     <entry>
       <name>run 2006</name>
@@ -145,8 +145,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>333</xloc>
-      <yloc>7</yloc>
+      <xloc>325</xloc>
+      <yloc>8</yloc>
       </entry>
     <entry>
       <name>Set godina 2006</name>
@@ -356,7 +356,7 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>170</xloc>
-      <yloc>418</yloc>
+      <yloc>414</yloc>
       </entry>
     <entry>
       <name>Set godina 2010</name>
@@ -376,7 +376,7 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>49</xloc>
-      <yloc>421</yloc>
+      <yloc>415</yloc>
       </entry>
     <entry>
       <name>run 1999</name>

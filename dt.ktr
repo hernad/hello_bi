@@ -94,8 +94,8 @@
   <notepads>
     <notepad>
       <note>TIME DIMENSION</note>
-      <xloc>333</xloc>
-      <yloc>63</yloc>
+      <xloc>301</xloc>
+      <yloc>29</yloc>
       <width>102</width>
       <heigth>22</heigth>
       <fontname/>
@@ -116,8 +116,8 @@
     <notepad>
       <note>The names of the week days and months are named parameters.
 English names are set by default.</note>
-      <xloc>189</xloc>
-      <yloc>317</yloc>
+      <xloc>157</xloc>
+      <yloc>283</yloc>
       <width>333</width>
       <heigth>35</heigth>
       <fontname/>
@@ -186,8 +186,8 @@ English names are set by default.</note>
     <limit>45000</limit>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>83</xloc>
-      <yloc>128</yloc>
+      <xloc>51</xloc>
+      <yloc>94</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -227,8 +227,8 @@ English names are set by default.</note>
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>672</xloc>
-      <yloc>128</yloc>
+      <xloc>640</xloc>
+      <yloc>94</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -315,8 +315,8 @@ English names are set by default.</note>
 </calculation>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>309</xloc>
-      <yloc>128</yloc>
+      <xloc>277</xloc>
+      <yloc>94</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -343,8 +343,8 @@ English names are set by default.</note>
       <max_value>10000000</max_value>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>193</xloc>
-      <yloc>128</yloc>
+      <xloc>161</xloc>
+      <yloc>94</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -387,8 +387,8 @@ English names are set by default.</note>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>193</xloc>
-      <yloc>242</yloc>
+      <xloc>161</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -431,8 +431,8 @@ English names are set by default.</note>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>193</xloc>
-      <yloc>382</yloc>
+      <xloc>161</xloc>
+      <yloc>348</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -463,8 +463,8 @@ English names are set by default.</note>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>407</xloc>
-      <yloc>128</yloc>
+      <xloc>375</xloc>
+      <yloc>94</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -504,8 +504,8 @@ English names are set by default.</note>
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>806</xloc>
-      <yloc>130</yloc>
+      <xloc>774</xloc>
+      <yloc>96</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -595,8 +595,8 @@ English names are set by default.</note>
         <norm>month_short_desc</norm>
         </field>      </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>552</xloc>
-      <yloc>382</yloc>
+      <xloc>520</xloc>
+      <yloc>348</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -656,8 +656,8 @@ English names are set by default.</note>
         <norm>week_short_desc</norm>
         </field>      </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>541</xloc>
-      <yloc>242</yloc>
+      <xloc>509</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -820,8 +820,8 @@ English names are set by default.</note>
         <trimtype>none</trimtype>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>310</xloc>
-      <yloc>382</yloc>
+      <xloc>278</xloc>
+      <yloc>348</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -984,8 +984,8 @@ English names are set by default.</note>
         <trimtype>none</trimtype>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>428</xloc>
-      <yloc>382</yloc>
+      <xloc>396</xloc>
+      <yloc>348</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1088,8 +1088,8 @@ English names are set by default.</note>
         <trimtype>none</trimtype>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>307</xloc>
-      <yloc>244</yloc>
+      <xloc>275</xloc>
+      <yloc>210</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1192,8 +1192,8 @@ English names are set by default.</note>
         <trimtype>none</trimtype>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>424</xloc>
-      <yloc>243</yloc>
+      <xloc>392</xloc>
+      <yloc>209</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1265,8 +1265,8 @@ English names are set by default.</note>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>810</xloc>
-      <yloc>300</yloc>
+      <xloc>778</xloc>
+      <yloc>266</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1306,8 +1306,8 @@ English names are set by default.</note>
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>532</xloc>
-      <yloc>128</yloc>
+      <xloc>500</xloc>
+      <yloc>94</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
